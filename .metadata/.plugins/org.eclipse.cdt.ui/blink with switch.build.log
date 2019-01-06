@@ -1,0 +1,21 @@
+19:44:00 **** Incremental Build of configuration Debug for project blink with switch ****
+make all 
+Building file: ../DIO_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"DIO_prog.d" -MT"DIO_prog.o" -c -o "DIO_prog.o" "../DIO_prog.c"
+Finished building: ../DIO_prog.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: blink with switch.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,blink with switch.map -mmcu=atmega32 -o "blink with switch.elf"  ./DIO_prog.o ./main.o   
+avr-gcc.exe: with: No such file or directory
+avr-gcc.exe: switch.map: No such file or directory
+make: *** [blink with switch.elf] Error 1
+
+19:44:13 Build Finished (took 12s.915ms)
+

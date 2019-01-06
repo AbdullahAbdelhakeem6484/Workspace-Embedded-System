@@ -1,0 +1,45 @@
+18:28:32 **** Incremental Build of configuration Debug for project Avoiding_Robot_metalDetector ****
+make all 
+Building file: ../main.c
+In file included from ../main.c:14:
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Avoiding_Robot_metalDetector.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Avoiding_Robot_metalDetector.map -mmcu=atmega32 -o "Avoiding_Robot_metalDetector.elf"  ./DIO_prog.o ./LCD_prog.o ./Timer_Driver_prog.o ./main.o   
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:15:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:52: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:57: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+Finished building target: Avoiding_Robot_metalDetector.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Avoiding_Robot_metalDetector.elf  >"Avoiding_Robot_metalDetector.lss"
+Finished building: Avoiding_Robot_metalDetector.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Avoiding_Robot_metalDetector.elf  "Avoiding_Robot_metalDetector.hex"
+Finished building: Avoiding_Robot_metalDetector.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Avoiding_Robot_metalDetector.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10556 bytes (32.2% Full)
+(.text + .data + .bootloader)
+
+Data:        290 bytes (14.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:29:03 Build Finished (took 30s.180ms)
+

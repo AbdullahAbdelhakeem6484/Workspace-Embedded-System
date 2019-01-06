@@ -1,0 +1,30 @@
+/*
+ * ULTRASONIC.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+#include "STD_Types.h"
+#include "macros.h"
+#include "DIO_interface.h"
+#include"ULTRASONIC.h"
+
+#include <util/delay.h>
+#define F_CPU 12000000
+
+void ULTRASONIC_voidInit(void)
+{
+	DIO_voidSetPinDir(PORT_D,PIN_1,OUTPUT); /*trigger as output */
+	//DIO_voidSetPinDir(PORT_D,PIN_6,INPUT); /*echo as input*/
+	DIO_voidSetPinValue(PORT_D,PIN_6,HIGH);/*PULL UP*/
+
+}
+void ULTRASONIC_voidTriggr(void)
+{
+	SET_BIT(PORT_D,1);/* Give 10us trigger pulse on trig. pin to HC-SR04 */
+	_delay_us(10);
+	CLEAR_BIT(PORT_D,1);
+
+
+
+}

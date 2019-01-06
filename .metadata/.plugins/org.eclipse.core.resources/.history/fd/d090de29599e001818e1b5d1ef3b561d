@@ -1,0 +1,40 @@
+/*
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+
+#define F_CPU 12000000
+#include<util/delay.h>
+#include<avr/io.h>
+
+
+int main (void)
+{
+
+
+
+
+	DDRA=0XFF;
+
+while(1)
+{
+
+		PORTA=0xFF;
+		_delay_ms(1000);
+		PORTA=0x00;
+		_delay_ms(1000);
+
+
+
+
+
+
+
+}
+
+return 0;
+}
+

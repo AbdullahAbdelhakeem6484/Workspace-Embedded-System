@@ -1,0 +1,33 @@
+18:20:41 **** Incremental Build of configuration Debug for project calcccc ****
+make all 
+Building target: calcccc.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,calcccc.map -mmcu=atmega32 -o "calcccc.elf"  ./clculator.o   
+Finished building target: calcccc.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S calcccc.elf  >"calcccc.lss"
+Finished building: calcccc.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex calcccc.elf  "calcccc.hex"
+Finished building: calcccc.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 calcccc.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7682 bytes (23.4% Full)
+(.text + .data + .bootloader)
+
+Data:         24 bytes (1.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:20:48 Build Finished (took 7s.490ms)
+

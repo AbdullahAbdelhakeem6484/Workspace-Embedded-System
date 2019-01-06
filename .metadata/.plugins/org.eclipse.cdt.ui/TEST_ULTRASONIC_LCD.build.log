@@ -1,0 +1,46 @@
+19:10:54 **** Incremental Build of configuration Debug for project TEST_ULTRASONIC_LCD ****
+make all 
+Building file: ../main.c
+In file included from ../main.c:11:
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:12:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:42: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:78: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:81: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: TEST_ULTRASONIC_LCD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TEST_ULTRASONIC_LCD.map -mmcu=atmega32 -o "TEST_ULTRASONIC_LCD.elf"  ./DIO_prog.o ./LCD_prog.o ./main.o   
+Finished building target: TEST_ULTRASONIC_LCD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TEST_ULTRASONIC_LCD.elf  >"TEST_ULTRASONIC_LCD.lss"
+Finished building: TEST_ULTRASONIC_LCD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TEST_ULTRASONIC_LCD.elf  "TEST_ULTRASONIC_LCD.hex"
+Finished building: TEST_ULTRASONIC_LCD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TEST_ULTRASONIC_LCD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   11848 bytes (36.2% Full)
+(.text + .data + .bootloader)
+
+Data:        292 bytes (14.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+19:11:10 Build Finished (took 15s.859ms)
+

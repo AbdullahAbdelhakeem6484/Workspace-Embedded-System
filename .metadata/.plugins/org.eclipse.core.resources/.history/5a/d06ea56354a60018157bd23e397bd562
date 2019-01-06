@@ -1,0 +1,55 @@
+/*
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+
+#include"../lib/STD_Types.h"
+#include"../lib/macros.h"
+#include<avr/io.h>
+
+int main (void)
+{
+	u8 x;
+
+	SET_BIT(DDRD,0);
+	SET_BIT(DDRD,1);
+	SET_BIT(DDRD,2);
+	SET_BIT(DDRD,3);
+	SET_BIT(DDRD,4);
+	SET_BIT(DDRD,5);
+	SET_BIT(DDRD,6);
+	SET_BIT(DDRD,7);
+	//dip switch input (0)
+	CLEAR_BIT(DDRA,0);
+	CLEAR_BIT(DDRA,1);
+	CLEAR_BIT(DDRA,2);
+	CLEAR_BIT(DDRA,3);
+	//pull up turn on (port high)
+	SET_BIT(PORTA,0);
+	SET_BIT(PORTA,1);
+	SET_BIT(PORTA,2);
+	SET_BIT(PORTA,3);
+	while(1)
+	{
+
+		x=GET_BIT(PINA,0);
+		if(x==0)  //pull down
+		{
+			SET_BIT(PORTD,0);
+		}
+		else
+		{
+			CLEAR_BIT(PORTD,0);
+
+		}
+
+
+	}
+
+return 0;
+
+
+}

@@ -1,0 +1,33 @@
+22:57:48 **** Incremental Build of configuration Debug for project ADC_ACTUAL_DRIVER ****
+make all 
+Building target: ADC_ACTUAL_DRIVER.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ADC_ACTUAL_DRIVER.map -mmcu=atmega32 -o "ADC_ACTUAL_DRIVER.elf"  ./ADC_prog.o ./DIO_prog.o ./main.o   
+Finished building target: ADC_ACTUAL_DRIVER.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ADC_ACTUAL_DRIVER.elf  >"ADC_ACTUAL_DRIVER.lss"
+Finished building: ADC_ACTUAL_DRIVER.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ADC_ACTUAL_DRIVER.elf  "ADC_ACTUAL_DRIVER.hex"
+Finished building: ADC_ACTUAL_DRIVER.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ADC_ACTUAL_DRIVER.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2152 bytes (6.6% Full)
+(.text + .data + .bootloader)
+
+Data:          2 bytes (0.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+22:58:09 Build Finished (took 21s.733ms)
+

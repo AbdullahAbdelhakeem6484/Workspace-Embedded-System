@@ -1,0 +1,71 @@
+/*
+ * main.c
+ *
+ *  Created on: 28/9/2018
+ *      Author: Abdullah Abdlhakeem
+ */
+#include"STD_Types.h"
+#include"macros.h"
+#include "DIO_interface.h"
+#include "UART_interface.h"
+#include "LCD_interface.h"
+
+#define F_CPU 12000000
+#include<util/delay.h>
+
+
+
+
+int main(void)
+{
+	u8 Receive_Byte;
+	UART_voidInit();
+	LCD_voidInit();
+	//LCD_voidWriteCharacter('a');
+
+while(1)
+{
+
+	Receive_Byte=UART_u8ReceiveByte();
+	if(Receive_Byte=='a')
+	{
+
+		LCD_voidWriteString("deda");
+		//UART_voidSendString(" Abdullah ");
+
+
+
+	}
+	/*else if(Receive_Byte=='b')
+		{
+		//LCD_voidWriteCharacter('b');
+
+		}
+	else if(Receive_Byte=='c')
+		{
+		//LCD_voidWriteCharacter('c');
+
+		}
+	else if(Receive_Byte=='d')
+		{
+		//LCD_voidWriteCharacter('d');
+
+		}*/
+
+
+
+	else
+	{
+		//LCD_voidWriteCharacter('f');
+
+
+
+	}
+
+}
+
+
+
+return 0;
+}
+

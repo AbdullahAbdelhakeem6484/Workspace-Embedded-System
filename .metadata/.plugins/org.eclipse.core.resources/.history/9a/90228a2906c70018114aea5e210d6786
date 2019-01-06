@@ -1,0 +1,329 @@
+/*
+ * main.c
+ *
+ *  Created on: Oct 2, 2018
+ *      Author: Hossam Radwan
+ */
+
+
+
+#include"../lib/std_types.h"
+#include"../lib/macros.h"
+#include"LCD_interface.h"
+#include"UART_interface.h"
+#include"UART_private.h"
+
+
+int main (void)
+{
+	u8 R,C,R_loop,C_loop;
+	u16 Receive;
+	LCD_voidInit();
+	UART_voidInit();
+	LCD_voidSendCommand(ClearWithDDRAM);
+	Receive = 0x00;
+	R_loop = 0;
+	C_loop = 0;
+	while (1)
+	{
+		for(R=R_loop;R<=1;R++)
+		{
+			for(C=C_loop;C<=15;C++)
+			{
+				Receive = 0x00;
+				while(Receive == 0x00)
+				{
+					Receive = UART_voidReceiveByte();
+				}
+				if(Receive == 0x7F)  //back space
+				{
+
+					if(R == 0 && C == 0)
+					{
+						R = 1;
+						R_loop = 1;
+						C = 15;
+						C_loop = 15;
+						LCD_voidSetCursor(R,C);
+						LCD_voidWriteCharacter(' ');
+					}
+					else if (R == 1 && C == 0)
+					{
+						R = 0;
+						R_loop = 0;
+						C = 15;
+						C_loop = 15;
+						LCD_voidSetCursor(R,C);
+						LCD_voidWriteCharacter(' ');
+					}
+					else if (R == 0 && C != 0)
+					{
+						R_loop = 0;
+						C_loop = C - 1;
+						LCD_voidSetCursor(R,C-1);
+						LCD_voidWriteCharacter(' ');
+					}
+					else if (R == 1 && C != 0)
+					{
+						R_loop = 1;
+						C_loop = C - 1;
+						LCD_voidSetCursor(R,C-1);
+						LCD_voidWriteCharacter(' ');
+					}
+					break;
+				}
+				else if (Receive == 0x0D)  //entre key
+				{
+					if(R == 0)
+					{
+						LCD_voidSetCursor(1,0);
+						R_loop = 1;
+						C_loop = 0;
+					}
+					else if (R == 1)
+					{
+						LCD_voidSetCursor(0,0);
+						R_loop = 0;
+						C_loop = 0;
+					}
+					break;
+				}
+				/*else if(Receive == 0x1B ) //delete
+				{
+					LCD_voidSendCommand(ClearWithDDRAM);
+					R_loop = 0;
+					C_loop = 0;
+					break;
+				}*/
+				else if (Receive == 0x5B || Receive == 0x42)  //down key
+				{
+					if (Receive == 0x42)
+					{
+						if(R == 0)
+						{
+							LCD_voidSetCursor(R+1,C-3);
+							R_loop = R+1;
+							C_loop = C-3;
+							break;
+						}
+						else if (R == 1)
+						{
+							LCD_voidSetCursor(R,C-3);
+							R_loop = R;
+							C_loop = C-3;
+							break;
+						}
+					}
+
+				}
+				else if (Receive == 0x5B || Receive == 0x41)  //up key
+				{
+					if (Receive == 0x41)
+					{
+						if(R == 0)
+						{
+							LCD_voidSetCursor(R,C-2);
+							R_loop = R;
+							C_loop = C-2;
+							break;
+						}
+						else if (R == 1)
+						{
+							LCD_voidSetCursor(R-1,C-3);
+							R_loop = R-1;
+							C_loop = C-3;
+							break;
+						}
+					}
+
+				}
+				else if (Receive == 0x5B || Receive == 0x43)  //right key
+				{
+					if (Receive == 0x43)
+					{
+						if(R == 1 && C == 15)
+						{
+							LCD_voidSetCursor(0,0);
+							R_loop = 0;
+							C_loop = 0;
+							break;
+						}
+						else if(R == 0 && C == 15)
+						{
+							LCD_voidSetCursor(1,0);
+							R_loop = 1;
+							C_loop = 0;
+						}
+						else
+						{
+							LCD_voidSetCursor(R,C-1);
+							R_loop = R;
+							C_loop = C-1;
+							break;
+						}
+					}
+				}
+				else if (Receive == 0x5B || Receive == 0x44)  //left key
+				{
+					if (Receive == 0x44)
+					{
+						if(R == 1 && C == 0)
+						{
+							LCD_voidSetCursor(0,15);
+							R_loop = 0;
+							C_loop = 15;
+							break;
+						}
+						else if(R == 0 && C == 0)
+						{
+							LCD_voidSetCursor(1,15);
+							R_loop = 1;
+							C_loop = 15;
+						}
+						else
+						{
+							LCD_voidSetCursor(R,C-3);
+							R_loop = R;
+							C_loop = C-3;
+							break;
+						}
+					}
+				}
+				else
+				{
+					 LCD_voidSetCursor(R,C);
+					 LCD_voidWriteCharacter(Receive);
+				}
+			}
+
+			if(Receive == 0x7F)  //backspace
+			{
+				if(R_loop > 1)
+				{
+					R_loop = 1;
+				}
+				if(C_loop > 15)
+				{
+					C_loop = 15;
+				}
+
+				break;
+			}
+			else if (Receive == 0x0D)  //entre key
+			{
+				if(R_loop > 1)
+				{
+					R_loop = 1;
+				}
+				if(C_loop > 15)
+				{
+					C_loop = 15;
+				}
+				break;
+			}
+			else if(Receive == 0x1B ) //delete
+			{
+				if(R_loop > 1)
+				{
+					R_loop = 1;
+				}
+				if(C_loop > 15)
+				{
+					C_loop = 15;
+				}
+					break;
+			}
+			else if (Receive == 0x5B || Receive == 0x42)  //down key
+			{
+				if (Receive == 0x42)
+				{
+					if(R_loop > 1)
+					{
+						R_loop = 1;
+					}
+					if(C_loop > 15)
+					{
+						C_loop = 15;
+					}
+				break;
+				}
+			}
+			else if (Receive == 0x5B || Receive == 0x41)  //up key
+			{
+				if (Receive == 0x41)
+				{
+					if(R_loop > 1)
+					{
+						R_loop = 1;
+					}
+					if(C_loop > 15)
+					{
+						C_loop = 15;
+					}
+				break;
+				}
+			}
+			else if (Receive == 0x5B || Receive == 0x43)  //right key
+			{
+				if (Receive == 0x43)
+				{
+					if(R_loop > 1)
+					{
+						R_loop = 1;
+					}
+					if(C_loop > 15)
+					{
+						C_loop = 15;
+					}
+					break;
+				}
+			}
+			else if (Receive == 0x5B || Receive == 0x44)  //left key
+			{
+				if (Receive == 0x44)
+				{
+					if(R_loop > 1)
+					{
+						R_loop = 1;
+					}
+					if(C_loop > 15)
+					{
+						C_loop = 15;
+					}
+					break;
+				}
+			}
+			else
+			{
+				if(R_loop > 1)
+				{
+					R_loop = 1;
+				}
+				if(C_loop > 15)
+				{
+					C_loop = 15;
+				}
+				R_loop = 0;
+				C_loop = 0;
+			}
+
+
+		}
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+	return 0;
+}
+
+

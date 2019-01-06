@@ -1,0 +1,39 @@
+/*
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+
+#define F_CPU 12000000
+#include<util/delay.h>
+#include<avr/io.h>
+
+const arr[10]={0b10100000,0b11111001,0b11000100,0b11010000,0b10011001,0b10010010,0b10000010,0b11111000,0b10000000,0b10010000};
+int main (void)
+{
+	int i;
+
+
+
+	DDRD=0XFF;
+
+while(1)
+{
+	for(i=0;i<10;i++)
+	{
+		PORTD=arr_7seg[i];
+		_delay_ms(1000);
+		PORTB=0xFF;
+
+
+	}
+
+
+
+}
+
+return 0;
+}
+

@@ -1,0 +1,42 @@
+23:07:59 **** Incremental Build of configuration Debug for project hbridge_4transistor ****
+make all 
+Building file: ../hbridge_4trans.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"hbridge_4trans.d" -MT"hbridge_4trans.o" -c -o "hbridge_4trans.o" "../hbridge_4trans.c"
+In file included from ../hbridge_4trans.c:13:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../hbridge_4trans.c:14:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+Finished building: ../hbridge_4trans.c
+ 
+Building target: hbridge_4transistor.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,hbridge_4transistor.map -mmcu=atmega32 -o "hbridge_4transistor.elf"  ./DIO_prog.o ./hbridge_4trans.o   
+Finished building target: hbridge_4transistor.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S hbridge_4transistor.elf  >"hbridge_4transistor.lss"
+Finished building: hbridge_4transistor.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex hbridge_4transistor.elf  "hbridge_4transistor.hex"
+Finished building: hbridge_4transistor.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 hbridge_4transistor.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5404 bytes (16.5% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:08:41 Build Finished (took 42s.262ms)
+

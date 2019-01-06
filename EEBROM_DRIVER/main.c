@@ -1,0 +1,76 @@
+
+#include"STD_Types.h"
+#include"macros.h"
+#include "DIO_interface.h"
+#include "EEPROM_interface.h"
+#include "I2C_interface.h"
+#include "LCD_interface.h"
+
+#define F_CPU 12000000
+#include<util/delay.h>
+/*
+int main(void)
+{
+	EEPROM_voidInit();
+	LCD_voidInit();
+	EEPROM_voidWritByte(0,0,'A'); //EEPROM_voidWritByte(u8 page,u8 location,u8 byte);
+	_delay_ms(10);
+	EEPROM_voidWritByte(0,1,'b');
+	_delay_ms(10);
+	EEPROM_voidWritByte(0,2,'d');
+	_delay_ms(10);
+	EEPROM_voidWritByte(0,3,'u');
+	_delay_ms(10);
+	EEPROM_voidWritByte(0,4,'l');
+	_delay_ms(10);
+	LCD_voidWriteString("DONE");
+
+
+
+
+
+
+while(1)
+{}
+
+
+return 0;
+}
+
+*/
+
+
+int main(void)
+{
+	EEPROM_voidInit();
+	LCD_voidInit();
+	u8 x;
+	x=EEPROM_u8ReadByte(0,0);  //EEPROM_u8ReadByte(u8 page,u8 location);
+	LCD_voidWriteCharacter(x);
+	x=EEPROM_u8ReadByte(0,1);
+	LCD_voidWriteCharacter(x);
+	x=EEPROM_u8ReadByte(0,2);
+	LCD_voidWriteCharacter(x);
+	x=EEPROM_u8ReadByte(0,3);
+	LCD_voidWriteCharacter(x);
+	x=EEPROM_u8ReadByte(0,4);
+	LCD_voidWriteCharacter(x);
+	x=EEPROM_u8ReadByte(0,5);
+	LCD_voidWriteCharacter(x);
+	x=EEPROM_u8ReadByte(0,6);
+	LCD_voidWriteCharacter(x);
+	x=EEPROM_u8ReadByte(0,7);
+		LCD_voidWriteCharacter(x);
+		x=EEPROM_u8ReadByte(0,8);
+			LCD_voidWriteCharacter(x);
+
+
+
+
+
+while(1)
+{}
+
+
+return 0;
+}

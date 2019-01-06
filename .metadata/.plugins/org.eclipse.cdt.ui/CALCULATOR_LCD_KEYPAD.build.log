@@ -1,0 +1,39 @@
+12:58:52 **** Incremental Build of configuration Debug for project CALCULATOR_LCD_KEYPAD ****
+make all 
+Building file: ../calculator.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"calculator.d" -MT"calculator.o" -c -o "calculator.o" "../calculator.c"
+../calculator.c:13:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../calculator.c:16:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../calculator.c
+ 
+Building target: libCALCULATOR_LCD_KEYPAD.a
+Invoking: AVR Archiver
+avr-ar -r  "libCALCULATOR_LCD_KEYPAD.a"  ./calculator.o  
+c:\Users\Fly labs\Desktop\IMT Tools\Interfacing\IMT_SDK_Win_64\WinAVR\bin\avr-ar.exe: creating libCALCULATOR_LCD_KEYPAD.a
+Finished building target: libCALCULATOR_LCD_KEYPAD.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libCALCULATOR_LCD_KEYPAD.a  >"libCALCULATOR_LCD_KEYPAD.lss"
+Finished building: libCALCULATOR_LCD_KEYPAD.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 libCALCULATOR_LCD_KEYPAD.a
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:      55 bytes (0.2% Full)
+(.text + .data + .bootloader)
+
+Data:         55 bytes (2.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+12:59:01 Build Finished (took 9s.444ms)
+

@@ -1,0 +1,188 @@
+/*
+ * main.c
+ *
+ *  Created on: Sep 17, 2018
+ *      Author: Abdullah Abdelhakeem
+ */
+
+
+#include"../lib/std_types.h"
+#include"../lib/macros.h"
+#include"DIO_interface.h"
+#include"LCD_interface.h"
+#include"Timer_Driver_interface.h"
+#include"EX_Interrupt_interface.h"
+#include"avr/io.h"
+#include<avr/interrupt.h>
+#include"util/delay.h"
+#define F_CPU 12000000
+
+u8 up,down;
+ u8 flag;
+int main (void)
+{
+	u8 Enter , x ;
+	DIO_voidSetPinDir(PORT_A,PIN_0,INPUT);  //enter key
+	DIO_voidSetPinValue(PORT_A,PIN_0,HIGH);
+
+	EX_Interrupt_voidInitINT0();   //up counting
+	EX_Interrupt_voidSetINT0();
+
+	EX_Interrupt_voidInitINT1();   //down counting
+	EX_Interrupt_voidSetINT1();
+
+	LCD_voidInit();
+
+	Timer_voidInit(0);
+
+
+	DIO_voidSetPinDir(PORT_B,PIN_3,OUTPUT);
+
+	LCD_voidSendCommand(ClearWithDDRAM);
+
+
+	Enter = GET_BIT(PINA,0);
+	up =GET_BIT(PIND,2);
+	down=  GET_BIT(PIND,3);
+
+
+	flag = 0;
+
+	OCR0 =0;
+
+	while(1)
+	{
+		LCD_voidSetCursor(0,0);
+		LCD_voidWriteString("Welcome ON lcd");
+		_delay_ms(2000);
+
+		LCD_voidSetCursor(0,0);
+		LCD_voidWriteString("IMT_OMAR.Solima");
+		_delay_ms(500);
+
+		LCD_voidSetCursor(0,0);
+		LCD_voidWriteString("Abdullah.Hakeem");
+		_delay_ms(500);
+
+
+
+		while(Enter == 1)
+		{
+			Enter = GET_BIT(PINA,0);
+
+		}
+
+		while(Enter == 0)
+		{
+			Enter = GET_BIT(PINA,0);
+		}
+		LCD_voidSetCursor(0,0);
+		LCD_voidWriteString("Select_Intensity");
+		LCD_voidSetCursor(1,0);
+		LCD_voidWriteString("0%");
+		while(1)
+		{
+			while(Enter == 1)
+			{
+				Enter = GET_BIT(PINA,0);
+			}
+			while(Enter == 0)
+			{
+				Enter = GET_BIT(PINA,0);
+			}
+			if (flag == 0)
+			{
+				OCR0 = 0;
+			}
+			else if (flag >0 && flag <= 9)
+			{
+			    x = (flag*10);
+			    OCR0 = (x * 255)/100;
+			}
+			else if (flag == 10)
+			{
+				OCR0=255;
+			}
+		    LCD_voidSetCursor(1,5);
+		    LCD_voidWriteString("ok");
+
+		}
+
+
+
+
+		}
+
+
+
+	return 0;
+}
+ISR(INT0_vect)
+{
+	while(up == 0)
+	{
+		up =GET_BIT(PIND,2);
+	}
+    LCD_voidSetCursor(1,5);
+    LCD_voidWriteString("    ");
+    flag ++;
+	if (flag == 0)
+	{
+		LCD_voidSetCursor(1,0);
+		LCD_voidWriteString("0% ");
+	}
+	else if (flag >0 && flag <=9)
+	{
+		LCD_voidwriteNumber(flag,1,0);
+		LCD_voidSetCursor(1,1);
+		LCD_voidWriteString("0% ");
+	}
+	else if (flag == 10)
+	{
+	LCD_voidSetCursor(1,0);
+	LCD_voidWriteString("100%");
+
+	}
+
+	while(up == 0)
+	{
+		up =GET_BIT(PIND,2);
+	}
+
+
+}
+ISR(INT1_vect)
+{
+	while(down == 0)
+	{
+		down=  GET_BIT(PIND,3);
+	}
+    LCD_voidSetCursor(1,5);
+    LCD_voidWriteString("    ");
+	flag --;
+	if (flag == 0)
+	{
+		LCD_voidSetCursor(1,0);
+		LCD_voidWriteString("0% ");
+	}
+	else if (flag >0 && flag <=9)
+	{
+		LCD_voidwriteNumber(flag,1,0);
+		LCD_voidSetCursor(1,1);
+		LCD_voidWriteString("0% ");
+	}
+	else if (flag == 10)
+	{
+	LCD_voidSetCursor(1,0);
+	LCD_voidWriteString("100%");
+
+	}
+
+	while(down == 0)
+	{
+		down=  GET_BIT(PIND,3);
+	}
+
+
+
+}

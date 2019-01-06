@@ -1,0 +1,16 @@
+/*
+
+ * motor.h
+ *
+ *  Created on: 16/11/2018
+ *      Author: Abdullah Abdelhakeem
+ */
+#ifndef MOTOR_H_
+#define MOTOR_H_
+
+void Motor_voidBackword(void);
+void Motor_voidFORWARD(void);
+void Motor_voidRight(void);
+void Motor_voidLeft(void);
+void Motor_voidDefault(void);
+#endif /* MOTOR_H_ */

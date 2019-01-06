@@ -1,0 +1,43 @@
+21:43:06 **** Incremental Build of configuration Debug for project Calculator ****
+make all 
+Building file: ../calc_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"calc_prog.d" -MT"calc_prog.o" -c -o "calc_prog.o" "../calc_prog.c"
+../calc_prog.c: In function 'LCD_voidWriteCharacter':
+../calc_prog.c:169: warning: implicit declaration of function '_delay_ms'
+../calc_prog.c: In function 'cal_op':
+../calc_prog.c:259: warning: implicit declaration of function 'clr_dis'
+../calc_prog.c: In function 'cal_run':
+../calc_prog.c:272: warning: implicit declaration of function 'sprintf'
+../calc_prog.c:272: warning: incompatible implicit declaration of built-in function 'sprintf'
+../calc_prog.c:272: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness
+../calc_prog.c:273: warning: pointer targets in passing argument 3 of 'dis_string' differ in signedness
+../calc_prog.c:279: warning: incompatible implicit declaration of built-in function 'sprintf'
+../calc_prog.c:279: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness
+../calc_prog.c:280: warning: pointer targets in passing argument 3 of 'dis_string' differ in signedness
+../calc_prog.c:298: warning: incompatible implicit declaration of built-in function 'sprintf'
+../calc_prog.c:298: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness
+../calc_prog.c:299: warning: pointer targets in passing argument 3 of 'dis_string' differ in signedness
+../calc_prog.c: In function 'calculate':
+../calc_prog.c:313: warning: implicit declaration of function 'key_scan'
+Finished building: ../calc_prog.c
+ 
+Building target: Calculator.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Calculator.map -mmcu=atmega32 -o "Calculator.elf"  ./DIO_prog.o ./LCD_prog.o ./calc_prog.o ./calculator.o ./keypad_prog.o   
+./calc_prog.o: In function `calculate':
+../calc_prog.c:312: multiple definition of `LCD_voidWriteCharacter'
+./LCD_prog.o:../LCD_prog.c:19: first defined here
+./keypad_prog.o: In function `KEYPAD_voidInit':
+../keypad_prog.c:14: multiple definition of `KEYPAD_u8GetKey'
+./calc_prog.o:../calc_prog.c:312: first defined here
+./calc_prog.o: In function `calculate':
+../calc_prog.c:321: undefined reference to `_delay_ms'
+../calc_prog.c:321: undefined reference to `clr_dis'
+../calc_prog.c:313: undefined reference to `key_scan'
+./calculator.o: In function `main':
+../calculator.c:56: undefined reference to `dis_shift'
+make: *** [Calculator.elf] Error 1
+
+21:43:31 Build Finished (took 25s.141ms)
+

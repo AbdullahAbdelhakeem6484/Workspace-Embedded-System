@@ -1,0 +1,36 @@
+/*
+ * keyPad_config.h
+ *
+ *  Created on: Aug 18, 2018
+ *      Author: Hossam Radwan
+ */
+
+#ifndef KEYPAD_CONFIG_H_
+#define KEYPAD_CONFIG_H_
+
+#define R1_PORT PORT_A
+#define R2_PORT PORT_A
+#define R3_PORT PORT_A
+#define R4_PORT PORT_A
+
+#define C1_PORT PORT_A
+#define C2_PORT PORT_A
+#define C3_PORT PORT_A
+#define C4_PORT PORT_A
+
+#define R1_PIN 7
+#define R2_PIN 6
+#define R3_PIN 5
+#define R4_PIN 4
+
+#define C1_PIN 3
+#define C2_PIN 2
+#define C3_PIN 1
+#define C4_PIN 0
+
+
+
+
+
+
+#endif /* KEYPAD_CONFIG_H_ */

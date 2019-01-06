@@ -1,0 +1,40 @@
+/*
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+#include"macros.h"
+#include"STD_Types.h"
+#include<avr/io.h>
+#include"DIO_interface.h"
+
+
+#include<util/delay.h>
+#define F_CPU 12000000
+
+
+int main(void)
+{
+
+	DIO_voidSetPinDir(PORT_B,PIN_3,OUTPUT);
+while(1)
+{
+
+for(u32 i=0;i<8;i++)
+{
+		DIO_voidSetPinValue(PORT_B,PIN_3,HIGH);
+		_delay_us(1000);
+		DIO_voidSetPinValue(PORT_B,PIN_3,LOW);
+		_delay_us(19000);
+
+}
+
+
+}
+
+
+
+return 0;
+}
+

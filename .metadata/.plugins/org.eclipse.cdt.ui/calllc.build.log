@@ -1,0 +1,40 @@
+19:12:15 **** Incremental Build of configuration Debug for project calllc ****
+make all 
+Building file: ../calc.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"calc.d" -MT"calc.o" -c -o "calc.o" "../calc.c"
+In file included from ../LCD_HW.h:15,
+                 from ../LCD_ML.h:8,
+                 from ../calc.h:12,
+                 from ../calc.c:8:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../calc.c
+ 
+Building target: libcalllc.a
+Invoking: AVR Archiver
+avr-ar -r  "libcalllc.a"  ./calc.o  
+c:\Users\Fly labs\Desktop\IMT Tools\Interfacing\IMT_SDK_Win_64\WinAVR\bin\avr-ar.exe: creating libcalllc.a
+Finished building target: libcalllc.a
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S libcalllc.a  >"libcalllc.lss"
+Finished building: libcalllc.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 libcalllc.a
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:      61 bytes (0.2% Full)
+(.text + .data + .bootloader)
+
+Data:         61 bytes (3.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+19:12:54 Build Finished (took 38s.951ms)
+

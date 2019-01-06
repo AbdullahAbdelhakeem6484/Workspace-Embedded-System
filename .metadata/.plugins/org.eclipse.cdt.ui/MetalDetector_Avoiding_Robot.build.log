@@ -1,0 +1,72 @@
+02:09:40 **** Build of configuration Debug for project MetalDetector_Avoiding_Robot ****
+make all 
+Building file: ../DIO_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"DIO_prog.d" -MT"DIO_prog.o" -c -o "DIO_prog.o" "../DIO_prog.c"
+../DIO_prog.c: In function 'DIO_u8GetPinValue':
+../DIO_prog.c:151: warning: control reaches end of non-void function
+Finished building: ../DIO_prog.c
+ 
+Building file: ../Timer_Driver_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"Timer_Driver_prog.d" -MT"Timer_Driver_prog.o" -c -o "Timer_Driver_prog.o" "../Timer_Driver_prog.c"
+In file included from ../Timer_Driver_prog.c:11:
+../Timer_Driver_config.h:48:12: warning: ISO C99 requires whitespace after the macro name
+../Timer_Driver_config.h:49:12: warning: ISO C99 requires whitespace after the macro name
+../Timer_Driver_config.h:49:1: warning: "CLK" redefined
+../Timer_Driver_config.h:48:1: warning: this is the location of the previous definition
+../Timer_Driver_config.h:50:12: warning: ISO C99 requires whitespace after the macro name
+../Timer_Driver_config.h:50:1: warning: "CLK" redefined
+../Timer_Driver_config.h:49:1: warning: this is the location of the previous definition
+../Timer_Driver_config.h:51:12: warning: ISO C99 requires whitespace after the macro name
+../Timer_Driver_config.h:51:1: warning: "CLK" redefined
+../Timer_Driver_config.h:50:1: warning: this is the location of the previous definition
+../Timer_Driver_prog.c:16: warning: 'OVF_counter' defined but not used
+Finished building: ../Timer_Driver_prog.c
+ 
+Building file: ../bluetooth_HCSR04.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"bluetooth_HCSR04.d" -MT"bluetooth_HCSR04.o" -c -o "bluetooth_HCSR04.o" "../bluetooth_HCSR04.c"
+Finished building: ../bluetooth_HCSR04.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:12:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:13:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+Finished building: ../main.c
+ 
+Building file: ../metalDetector.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"metalDetector.d" -MT"metalDetector.o" -c -o "metalDetector.o" "../metalDetector.c"
+Finished building: ../metalDetector.c
+ 
+Building target: MetalDetector_Avoiding_Robot.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,MetalDetector_Avoiding_Robot.map -mmcu=atmega32 -o "MetalDetector_Avoiding_Robot.elf"  ./DIO_prog.o ./Timer_Driver_prog.o ./bluetooth_HCSR04.o ./main.o ./metalDetector.o   
+Finished building target: MetalDetector_Avoiding_Robot.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S MetalDetector_Avoiding_Robot.elf  >"MetalDetector_Avoiding_Robot.lss"
+Finished building: MetalDetector_Avoiding_Robot.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 MetalDetector_Avoiding_Robot.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8792 bytes (26.8% Full)
+(.text + .data + .bootloader)
+
+Data:        280 bytes (13.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+02:10:28 Build Finished (took 48s.463ms)
+

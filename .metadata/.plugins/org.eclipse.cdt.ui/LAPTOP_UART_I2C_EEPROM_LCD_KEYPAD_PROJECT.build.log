@@ -1,0 +1,25 @@
+17:52:45 **** Incremental Build of configuration Debug for project LAPTOP_UART_I2C_EEPROM_LCD_KEYPAD_PROJECT ****
+make all 
+Building file: ../main.c
+../main.c:11:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../main.c:12:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+./keypad_prog.o: In function `KEYPAD_voidInit':
+../keypad_prog.c:22: undefined reference to `DIO_u8GetPinValue'
+../keypad_prog.c:25: undefined reference to `DIO_u8GetPinValue'
+../keypad_prog.c:27: undefined reference to `DIO_u8GetPinValue'
+../keypad_prog.c:31: undefined reference to `DIO_u8GetPinValue'
+../keypad_prog.c:31: undefined reference to `DIO_u8GetPinValue'
+./keypad_prog.o:../keypad_prog.c:31: more undefined references to `DIO_u8GetPinValue' follow
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: LAPTOP_UART_I2C_EEPROM_LCD_KEYPAD_PROJECT.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,LAPTOP_UART_I2C_EEPROM_LCD_KEYPAD_PROJECT.map -mmcu=atmega32 -o "LAPTOP_UART_I2C_EEPROM_LCD_KEYPAD_PROJECT.elf"  ./DIO_prog.o ./EEPROM_prog.o ./I2C_prog.o ./LCD_prog.o ./keypad_prog.o ./main.o   
+make: *** [LAPTOP_UART_I2C_EEPROM_LCD_KEYPAD_PROJECT.elf] Error 1
+
+17:52:53 Build Finished (took 7s.744ms)
+

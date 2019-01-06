@@ -1,0 +1,30 @@
+/*
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+#include"macros.h"
+#include"STD_Types.h"
+#include<avr/io.h>
+#include"DIO_interface.h"
+#include"FreeRTOS.h"
+#include"task.h"
+
+int main (void)
+{
+
+
+	//DIO_voidSetPinValue(PORT_D,PIN_7,HIGH);
+
+	//DIO_voidSetPinDir(PORT_D,PIN_7,OUTPUT);
+
+
+
+ while(1)
+ {
+
+
+ }
+return 0;
+}

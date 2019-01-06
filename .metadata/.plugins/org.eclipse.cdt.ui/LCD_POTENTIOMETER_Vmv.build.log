@@ -1,0 +1,48 @@
+14:58:19 **** Incremental Build of configuration Debug for project LCD_POTENTIOMETER_Vmv ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:10:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:12:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:64: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:67: warning: implicit declaration of function 'dtostrf'
+../main.c:73: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:90: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:100: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: LCD_POTENTIOMETER_Vmv.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,LCD_POTENTIOMETER_Vmv.map -mmcu=atmega32 -o "LCD_POTENTIOMETER_Vmv.elf"  ./ADC_prog.o ./DIO_prog.o ./LCD_prog.o ./main.o   
+Finished building target: LCD_POTENTIOMETER_Vmv.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S LCD_POTENTIOMETER_Vmv.elf  >"LCD_POTENTIOMETER_Vmv.lss"
+Finished building: LCD_POTENTIOMETER_Vmv.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex LCD_POTENTIOMETER_Vmv.elf  "LCD_POTENTIOMETER_Vmv.hex"
+Finished building: LCD_POTENTIOMETER_Vmv.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 LCD_POTENTIOMETER_Vmv.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   10010 bytes (30.5% Full)
+(.text + .data + .bootloader)
+
+Data:        298 bytes (14.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+14:58:28 Build Finished (took 9s.426ms)
+

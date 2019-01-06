@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;_EX_INTERRUPT_&apos; to &apos;_EX_INTERRUPT_DRIVER_&apos;" description="Rename resource &apos;_EX_INTERRUPT_&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/_EX_INTERRUPT_" name="_EX_INTERRUPT_DRIVER_" stamp="1537484089379" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;omar_test&apos; to &apos;FREQUENCY__DUTY_CALCULATE&apos;" description="Rename resource &apos;omar_test&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/omar_test" name="FREQUENCY__DUTY_CALCULATE" stamp="1537570076699" updateReferences="true"/>
+</session>

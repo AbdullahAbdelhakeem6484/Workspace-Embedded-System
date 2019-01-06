@@ -1,0 +1,51 @@
+20:07:28 **** Incremental Build of configuration Debug for project CALLLLLAC_MUL ****
+make all 
+Building file: ../calculator_blocks.c
+In file included from ../Components/micro_config.h:13,
+                 from ../calculator_blocks.h:13,
+                 from ../calculator_blocks.c:7:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../calculator_blocks.c: In function 'ThrowException':
+../calculator_blocks.c:98: warning: pointer targets in passing argument 1 of 'LCD_displayString' differ in signedness
+../calculator_blocks.c: In function 'Analyze':
+../calculator_blocks.c:111: warning: pointer targets in passing argument 1 of 'ThrowException' differ in signedness
+../calculator_blocks.c:140: warning: pointer targets in passing argument 1 of 'ConvertToInt64' differ in signedness
+../calculator_blocks.c:151: warning: pointer targets in passing argument 1 of 'ThrowException' differ in signedness
+../calculator_blocks.c: In function 'Calculate':
+../calculator_blocks.c:223: warning: pointer targets in passing argument 1 of 'ThrowException' differ in signedness
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"calculator_blocks.d" -MT"calculator_blocks.o" -c -o "calculator_blocks.o" "../calculator_blocks.c"
+../calculator_blocks.c:269: warning: pointer targets in passing argument 1 of 'ThrowException' differ in signedness
+Finished building: ../calculator_blocks.c
+ 
+Building target: CALLLLLAC_MUL.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,CALLLLLAC_MUL.map -mmcu=atmega32 -o "CALLLLLAC_MUL.elf"  ./Components/keypad.o ./Components/lcd.o  ./Calculator.o ./calculator_blocks.o   
+Finished building target: CALLLLLAC_MUL.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S CALLLLLAC_MUL.elf  >"CALLLLLAC_MUL.lss"
+Finished building: CALLLLLAC_MUL.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex CALLLLLAC_MUL.elf  "CALLLLLAC_MUL.hex"
+Finished building: CALLLLLAC_MUL.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 CALLLLLAC_MUL.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   21156 bytes (64.6% Full)
+(.text + .data + .bootloader)
+
+Data:        411 bytes (20.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+20:07:44 Build Finished (took 15s.834ms)
+

@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Delete ٢ resources" deleteContents="false" description="Delete ٢ resources" element1="/upadate_Avoiding_robot_metal_detector/TIMER1_interface.h" element2="/upadate_Avoiding_robot_metal_detector/TIMER1_prog.c" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="2" stamp="1543060702457"/>&#x0A;<refactoring comment="Rename resource &apos;free test pwm&apos; to &apos;pwm&apos;" description="Rename resource &apos;free test pwm&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/free test pwm" name="pwm" stamp="1543340639562" updateReferences="true"/>
+</session>

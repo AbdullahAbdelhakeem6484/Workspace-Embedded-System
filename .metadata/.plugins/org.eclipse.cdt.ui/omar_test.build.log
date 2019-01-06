@@ -1,0 +1,48 @@
+17:52:38 **** Incremental Build of configuration Debug for project omar_test ****
+make all 
+Building file: ../main.c
+In file included from ../main.c:14:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:36:2: warning: #warning "This file has been moved to <util/delay.h>."
+In file included from c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/avr/delay.h:37,
+                 from ../main.c:14:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:15:1: warning: "F_CPU" redefined
+Invoking: AVR Compiler
+<command-line>: warning: this is the location of the previous definition
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:80: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:83: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: omar_test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,omar_test.map -mmcu=atmega32 -o "omar_test.elf"  ./DIO_prog.o ./LCD_prog.o ./main.o   
+Finished building target: omar_test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S omar_test.elf  >"omar_test.lss"
+Finished building: omar_test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex omar_test.elf  "omar_test.hex"
+Finished building: omar_test.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 omar_test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    9320 bytes (28.4% Full)
+(.text + .data + .bootloader)
+
+Data:        300 bytes (14.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+17:52:50 Build Finished (took 12s.621ms)
+

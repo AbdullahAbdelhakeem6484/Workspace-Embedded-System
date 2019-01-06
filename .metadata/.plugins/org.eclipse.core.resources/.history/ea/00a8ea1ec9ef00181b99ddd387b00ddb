@@ -1,0 +1,12 @@
+/*
+ * IR_Sensor.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+#include "STD_Types.h"
+#include "macros.h"
+#include "DIO_interface.h"
+
+

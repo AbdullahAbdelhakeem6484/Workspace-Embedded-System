@@ -1,0 +1,42 @@
+21:22:04 **** Incremental Build of configuration Debug for project calculator_lcd_keypad19 ****
+make all 
+Building file: ../calc.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"calc.d" -MT"calc.o" -c -o "calc.o" "../calc.c"
+In file included from ../calc.c:8:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../calc.c:9:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+Finished building: ../calc.c
+ 
+Building target: calculator_lcd_keypad19.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,calculator_lcd_keypad19.map -mmcu=atmega32 -o "calculator_lcd_keypad19.elf"  ./DIO_prog.o ./LCD_prog.o ./calc.o ./keypad_prog.o   
+Finished building target: calculator_lcd_keypad19.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S calculator_lcd_keypad19.elf  >"calculator_lcd_keypad19.lss"
+Finished building: calculator_lcd_keypad19.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex calculator_lcd_keypad19.elf  "calculator_lcd_keypad19.hex"
+Finished building: calculator_lcd_keypad19.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 calculator_lcd_keypad19.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   11630 bytes (35.5% Full)
+(.text + .data + .bootloader)
+
+Data:         36 bytes (1.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+21:22:29 Build Finished (took 25s.648ms)
+

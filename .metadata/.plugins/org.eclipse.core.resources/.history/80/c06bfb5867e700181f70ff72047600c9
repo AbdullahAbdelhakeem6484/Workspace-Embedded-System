@@ -1,0 +1,72 @@
+/*
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+// Measuring distance using ultrasonic distance sensor
+#include "STD_Types.h"
+#include"macros.h"
+#include <avr/io.h>
+#include"DIO_interface.h"
+#include"LCD_interface.h"
+#include <avr/interrupt.h>
+#include <util/delay.h>
+#define F_CPU 12000000
+
+
+
+static volatile int pulse = 0;
+static volatile int i = 0;
+
+int main(void)
+{
+  int16_t count_a = 0;
+ // char show_a[16];
+  LCD_voidInit();
+  //DDRD = 0b11111011;
+  DIO_voidSetPinDir(PORT_D,PIN_0,OUTPUT);
+  DIO_voidSetPinDir(PORT_D,PIN_2,INPUT);
+  _delay_ms(50);
+
+  GICR |= 1<<INT0;
+  MCUCR |= 1<<ISC00;
+
+ SET_BIT(SREG,7);           // sei();
+
+  while(1)
+  {
+    PORTD |= 1<<PIND0;
+    _delay_us(15);
+    PORTD &= ~(1<<PIND0);
+
+    count_a = pulse/58;
+    LCD_voidSetCursor (0,0);
+    LCD_voidWriteString("DISTANCE:");// Send_A_String("Distance");
+
+    LCD_voidSetCursor (1,2);
+    LCD_voidWrite(count_a);// LCD_voidwriteNumber(count_a,1,2);
+
+    LCD_voidSetCursor (1,12);
+    LCD_voidWriteString("cm");
+
+  }
+}
+
+ISR(INT0_vect)
+{
+  if(i == 1)
+  {
+    TCCR1B = 0;
+    pulse = TCNT1;
+    TCNT1 = 0;
+    i = 0;
+  }
+
+  if(i==0)
+  {
+    TCCR1B |= 1<<CS10;
+    i = 1;
+  }
+}
+

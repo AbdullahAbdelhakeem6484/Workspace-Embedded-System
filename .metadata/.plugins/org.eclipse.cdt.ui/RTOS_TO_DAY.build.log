@@ -1,0 +1,40 @@
+15:21:42 **** Incremental Build of configuration Debug for project RTOS_TO_DAY ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:20: warning: pointer targets in passing argument 2 of 'xTaskGenericCreate' differ in signedness
+Finished building: ../main.c
+ 
+Building target: RTOS_TO_DAY.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,RTOS_TO_DAY.map -mmcu=atmega32 -o "RTOS_TO_DAY.elf"  ./DIO_prog.o ./croutine.o ./heap_1.o ./list.o ./main.o ./port.o ./queue.o ./tasks.o ./timers.o   
+Finished building target: RTOS_TO_DAY.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S RTOS_TO_DAY.elf  >"RTOS_TO_DAY.lss"
+Finished building: RTOS_TO_DAY.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex RTOS_TO_DAY.elf  "RTOS_TO_DAY.hex"
+Finished building: RTOS_TO_DAY.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 RTOS_TO_DAY.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   12412 bytes (37.9% Full)
+(.text + .data + .bootloader)
+
+Data:        795 bytes (38.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:21:49 Build Finished (took 7s.190ms)
+

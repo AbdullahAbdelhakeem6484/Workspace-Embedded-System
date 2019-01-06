@@ -1,0 +1,36 @@
+/*
+ * ADC_prog.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+#include"macros.h"
+#include"STD_Types.h"
+#include"DIO_interface.h"
+#include<util/delay.h>
+#define F_CPU 12000000
+
+void ADC_voidInit(void)
+{
+	//ACVV
+	CLEAR_BIT(ADMUX,7);
+	SET_BIT(ADMUX,6);
+
+	CLEAR_BIT(ADMUX,5);//right adjust
+	SET_BIT(ADCSRA,7);//ENABLE ADC
+
+	CLEAR_BIT(ADCSRA,2);
+	SET_BIT(ADCSRA,1);
+	CLEAR_BIT(ADCSRA,0);
+
+
+}
+
+u16 ADC_u16GetValue(u8 channel)//CHANGE 0 TO 7
+{
+
+
+
+
+
+}

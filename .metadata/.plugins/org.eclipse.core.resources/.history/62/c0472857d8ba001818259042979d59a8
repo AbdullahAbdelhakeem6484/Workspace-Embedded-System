@@ -1,0 +1,94 @@
+
+#include"macros.h"
+#include"STD_Types.h"
+#include"LCD_interface.h"
+#include"DIO_interface.h"
+#include"ADC_interface.h"
+#include<util/delay.h>
+#include<avr/io.h>
+#define F_CPU 12000000
+
+int main(void)
+{
+	//timer
+	//• Bit 6, 3 – WGM01:0: Waveform Generation Mode
+				SET_BIT(TCCR0,6);
+				CLEAR_BIT(TCCR0,3);
+	//Compare Output Mode, Fast PWM Mode(1) Clear OC0 on compare match, set OC0 at TOP
+				CLEAR_BIT(TCCR0,4);
+				SET_BIT(TCCR0,5);
+
+	//• Bit 2:0 – CS02:0: Clock Select clkI/O/(No prescaling)
+				SET_BIT(TCCR0,0);
+				CLEAR_BIT(TCCR0,1);
+				CLEAR_BIT(TCCR0,2);
+
+	DIO_voidSetPinDir(PORT_B,PIN_3,OUTPUT);
+
+
+	//ADC
+	//voltage divider
+	u16 digital,analog;
+
+
+	ADC_voidInit();
+	LCD_voidInit(); //lcd initialization
+	LCD_voidWriteString("Welcome On LCD");
+	Lcd_voidShiftRight();
+	_delay_ms(500);
+	LCD_voidSetCursor(1,0);
+	LCD_voidWriteString("Select-Intensity");
+	LCD_voidSetCursor(2, 0);
+	LCD_voidWriteString("    %");
+
+	while(1)
+	{
+
+		digital=ADC_u16GetValue(0);
+		analog=(digital*5)/1024;
+		OCR0=digital/5;
+		if((analog/2)<0.5)
+		{
+
+			LCD_voidSetCursor(2, 1);
+			LCD_voidWriteString("");
+
+		}
+
+		else if (((analog/2)>0.5)&&((analog/2)<2))
+		{
+
+			LCD_voidSetCursor(2, 1);
+			LCD_voidWriteString("");
+
+		}
+
+		else if (((analog/2)>2)&&((analog/2)<3))
+		{
+
+			LCD_voidSetCursor(2, 1);
+			LCD_voidWriteString("");
+
+		}
+		else if (((analog/2)>3)&&((analog/2)<4))
+		{
+
+			LCD_voidSetCursor(2, 1);
+			LCD_voidWriteString("");
+
+		}
+		else
+		{
+
+			LCD_voidSetCursor(2, 1);
+			LCD_voidWriteString("");
+
+		}
+
+
+
+	}
+
+
+return 0;
+}

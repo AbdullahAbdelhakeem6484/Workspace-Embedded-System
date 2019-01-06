@@ -1,0 +1,31 @@
+03:50:36 **** Incremental Build of configuration Debug for project TIMER_DRIVER ****
+make all 
+Building file: ../TIMER0_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"TIMER0_prog.d" -MT"TIMER0_prog.o" -c -o "TIMER0_prog.o" "../TIMER0_prog.c"
+In file included from ../TIMER0_prog.c:7:
+../TIMER0_interface.h:14:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../TIMER0_prog.c:14:13: warning: ISO C99 requires whitespace after the macro name
+../TIMER0_prog.c:15:22: warning: ISO C99 requires whitespace after the macro name
+../TIMER0_prog.c:16:20: warning: ISO C99 requires whitespace after the macro name
+../TIMER0_prog.c:20:6: error: operator '==' has no left operand
+../TIMER0_prog.c:27:7: error: operator '==' has no left operand
+../TIMER0_prog.c:35:7: error: operator '==' has no left operand
+../TIMER0_prog.c:41:7: error: operator '==' has no left operand
+../TIMER0_prog.c:101:5: error: operator '==' has no left operand
+../TIMER0_prog.c:108:7: error: operator '==' has no left operand
+../TIMER0_prog.c:116:7: error: operator '==' has no left operand
+../TIMER0_prog.c:122:7: error: operator '==' has no left operand
+../TIMER0_prog.c:183:5: error: operator '==' has no left operand
+../TIMER0_prog.c:191:7: error: operator '==' has no left operand
+../TIMER0_prog.c:200:7: error: operator '==' has no left operand
+../TIMER0_prog.c:207:7: error: operator '==' has no left operand
+../TIMER0_prog.c:214:7: error: operator '==' has no left operand
+../TIMER0_prog.c:221:7: error: operator '==' has no left operand
+../TIMER0_prog.c:228:7: error: operator '==' has no left operand
+../TIMER0_prog.c:235:7: error: operator '==' has no left operand
+make: *** [TIMER0_prog.o] Error 1
+
+03:50:43 Build Finished (took 6s.235ms)
+

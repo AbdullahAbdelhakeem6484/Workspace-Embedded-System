@@ -1,0 +1,42 @@
+15:50:25 **** Incremental Build of configuration Debug for project task5_27seg ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+../main.c:9:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../main.c:11:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../main.c
+ 
+Building target: task5_27seg.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,task5_27seg.map -mmcu=atmega32 -o "task5_27seg.elf"  ./main.o   
+Finished building target: task5_27seg.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S task5_27seg.elf  >"task5_27seg.lss"
+Finished building: task5_27seg.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex task5_27seg.elf  "task5_27seg.hex"
+Finished building: task5_27seg.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 task5_27seg.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6610 bytes (20.2% Full)
+(.text + .data + .bootloader)
+
+Data:         18 bytes (0.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:50:41 Build Finished (took 16s.282ms)
+

@@ -1,0 +1,72 @@
+21:50:17 **** Incremental Build of configuration Debug for project calc ****
+make all 
+Building file: ../Components/lcd.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"Components/lcd.d" -MT"Components/lcd.o" -c -o "Components/lcd.o" "../Components/lcd.c"
+In file included from ../Components/micro_config.h:13,
+                 from ../Components/lcd.h:9,
+                 from ../Components/lcd.c:2:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../Components/lcd.c: In function 'Signed_Int64_ToASCI':
+../Components/lcd.c:259: warning: pointer targets in passing argument 1 of 'strrev' differ in signedness
+../Components/lcd.c: In function 'LCD_Signed_Int64_ToString':
+../Components/lcd.c:267: warning: pointer targets in passing argument 2 of 'Signed_Int64_ToASCI' differ in signedness
+Finished building: ../Components/lcd.c
+ 
+Building file: ../Calculator.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"Calculator.d" -MT"Calculator.o" -c -o "Calculator.o" "../Calculator.c"
+In file included from ../Components/micro_config.h:13,
+                 from ../Calculator.c:9:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../Calculator.c
+ 
+Building file: ../calculator_blocks.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"calculator_blocks.d" -MT"calculator_blocks.o" -c -o "calculator_blocks.o" "../calculator_blocks.c"
+In file included from ../Components/micro_config.h:13,
+                 from ../calculator_blocks.h:13,
+                 from ../calculator_blocks.c:7:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../calculator_blocks.c: In function 'ThrowException':
+../calculator_blocks.c:98: warning: pointer targets in passing argument 1 of 'LCD_displayString' differ in signedness
+../calculator_blocks.c: In function 'Analyze':
+../calculator_blocks.c:111: warning: pointer targets in passing argument 1 of 'ThrowException' differ in signedness
+../calculator_blocks.c:140: warning: pointer targets in passing argument 1 of 'ConvertToInt64' differ in signedness
+../calculator_blocks.c:151: warning: pointer targets in passing argument 1 of 'ThrowException' differ in signedness
+../calculator_blocks.c: In function 'Calculate':
+../calculator_blocks.c:223: warning: pointer targets in passing argument 1 of 'ThrowException' differ in signedness
+../calculator_blocks.c:269: warning: pointer targets in passing argument 1 of 'ThrowException' differ in signedness
+Finished building: ../calculator_blocks.c
+ 
+Building target: calc.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,calc.map -mmcu=atmega32 -o "calc.elf"  ./Components/keypad.o ./Components/lcd.o  ./Calculator.o ./calculator_blocks.o   
+Finished building target: calc.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S calc.elf  >"calc.lss"
+Finished building: calc.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex calc.elf  "calc.hex"
+Finished building: calc.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 calc.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   46188 bytes (141.0% Full)
+(.text + .data + .bootloader)
+
+Data:        463 bytes (22.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+21:50:58 Build Finished (took 41s.153ms)
+

@@ -1,0 +1,10 @@
+04:31:02 **** Incremental Build of configuration Debug for project _KEYPAD_DRIVER ****
+make all 
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o:(.init9+0x0): undefined reference to `main'
+Building target: _KEYPAD_DRIVER.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,_KEYPAD_DRIVER.map -mmcu=atmega32 -o "_KEYPAD_DRIVER.elf"  ./DIO_prog.o ./KeyPad_prog.o   
+make: *** [_KEYPAD_DRIVER.elf] Error 1
+
+04:31:08 Build Finished (took 5s.751ms)
+

@@ -1,0 +1,47 @@
+23:53:23 **** Incremental Build of configuration Debug for project SevsegR_driver ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building file: ../sevenSeg_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"sevenSeg_prog.d" -MT"sevenSeg_prog.o" -c -o "sevenSeg_prog.o" "../sevenSeg_prog.c"
+In file included from ../sevenSeg_prog.c:13:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../sevenSeg_prog.c:14:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+Finished building: ../sevenSeg_prog.c
+ 
+Building target: SevsegR_driver.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,SevsegR_driver.map -mmcu=atmega32 -o "SevsegR_driver.elf"  ./DIO_prog.o ./main.o ./sevenSeg_prog.o   
+Finished building target: SevsegR_driver.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S SevsegR_driver.elf  >"SevsegR_driver.lss"
+Finished building: SevsegR_driver.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex SevsegR_driver.elf  "SevsegR_driver.hex"
+Finished building: SevsegR_driver.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 SevsegR_driver.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5008 bytes (15.3% Full)
+(.text + .data + .bootloader)
+
+Data:         18 bytes (0.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:53:33 Build Finished (took 9s.852ms)
+

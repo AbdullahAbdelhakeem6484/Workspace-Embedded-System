@@ -1,0 +1,45 @@
+16:57:08 **** Incremental Build of configuration Debug for project controlling_home_by_mobileApp ****
+make all 
+Building file: ../main.c
+../main.c:12:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../main.c:13:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:36:1: warning: "/*" within comment
+../main.c:52:1: warning: "/*" within comment
+../main.c:65:1: warning: "/*" within comment
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: controlling_home_by_mobileApp.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,controlling_home_by_mobileApp.map -mmcu=atmega32 -o "controlling_home_by_mobileApp.elf"  ./DIO_prog.o ./EEPROM_prog.o ./I2C_prog.o ./LCD_prog.o ./UART_prog.o ./main.o   
+Finished building target: controlling_home_by_mobileApp.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S controlling_home_by_mobileApp.elf  >"controlling_home_by_mobileApp.lss"
+Finished building: controlling_home_by_mobileApp.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex controlling_home_by_mobileApp.elf  "controlling_home_by_mobileApp.hex"
+Finished building: controlling_home_by_mobileApp.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 controlling_home_by_mobileApp.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7884 bytes (24.1% Full)
+(.text + .data + .bootloader)
+
+Data:         12 bytes (0.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:57:17 Build Finished (took 8s.807ms)
+

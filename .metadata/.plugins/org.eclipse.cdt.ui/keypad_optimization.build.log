@@ -1,0 +1,33 @@
+01:13:03 **** Incremental Build of configuration Debug for project keypad_optimization ****
+make all 
+Building target: keypad_optimization.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,keypad_optimization.map -mmcu=atmega32 -o "keypad_optimization.elf"  ./DIO_prog.o ./keypad_prog.o ./main.o   
+Finished building target: keypad_optimization.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S keypad_optimization.elf  >"keypad_optimization.lss"
+Finished building: keypad_optimization.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex keypad_optimization.elf  "keypad_optimization.hex"
+Finished building: keypad_optimization.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 keypad_optimization.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2792 bytes (8.5% Full)
+(.text + .data + .bootloader)
+
+Data:         10 bytes (0.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+01:13:11 Build Finished (took 8s.139ms)
+

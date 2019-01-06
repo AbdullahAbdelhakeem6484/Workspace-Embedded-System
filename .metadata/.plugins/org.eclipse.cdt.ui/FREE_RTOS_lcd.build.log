@@ -1,0 +1,24 @@
+16:53:55 **** Incremental Build of configuration Debug for project FREE_RTOS_lcd ****
+make all 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex FREE_RTOS_lcd.elf  "FREE_RTOS_lcd.hex"
+Finished building: FREE_RTOS_lcd.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 FREE_RTOS_lcd.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    6398 bytes (19.5% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:53:59 Build Finished (took 4s.503ms)
+

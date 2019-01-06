@@ -1,0 +1,59 @@
+23:02:01 **** Incremental Build of configuration Debug for project INTENSITY_TWO_LEDS_PUSH-BUTTON ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:17:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:18:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:56: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:60: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:64: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:80: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:82: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:107: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c: In function '__vector_1':
+../main.c:127: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:132: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:138: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:143: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c: In function '__vector_2':
+../main.c:161: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:166: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:172: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:177: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: INTENSITY_TWO_LEDS_PUSH-BUTTON.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,INTENSITY_TWO_LEDS_PUSH-BUTTON.map -mmcu=atmega32 -o "INTENSITY_TWO_LEDS_PUSH-BUTTON.elf"  ./ADC_Driver_prog.o ./DIO_prog.o ./EX_Interrupt_prog.o ./KeyPad_prog.o ./LCD_prog.o ./Timer_Driver_prog.o ./main.o   
+Finished building target: INTENSITY_TWO_LEDS_PUSH-BUTTON.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S INTENSITY_TWO_LEDS_PUSH-BUTTON.elf  >"INTENSITY_TWO_LEDS_PUSH-BUTTON.lss"
+Finished building: INTENSITY_TWO_LEDS_PUSH-BUTTON.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex INTENSITY_TWO_LEDS_PUSH-BUTTON.elf  "INTENSITY_TWO_LEDS_PUSH-BUTTON.hex"
+Finished building: INTENSITY_TWO_LEDS_PUSH-BUTTON.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 INTENSITY_TWO_LEDS_PUSH-BUTTON.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   11786 bytes (36.0% Full)
+(.text + .data + .bootloader)
+
+Data:        105 bytes (5.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:02:17 Build Finished (took 16s.118ms)
+

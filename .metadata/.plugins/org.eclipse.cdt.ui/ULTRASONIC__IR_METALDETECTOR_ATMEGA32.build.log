@@ -1,0 +1,36 @@
+17:26:09 **** Incremental Build of configuration Debug for project ULTRASONIC__IR_METALDETECTOR_ATMEGA32 ****
+make all 
+Building file: ../DIO_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"DIO_prog.d" -MT"DIO_prog.o" -c -o "DIO_prog.o" "../DIO_prog.c"
+../DIO_prog.c: In function 'DIO_u8GetPinValue':
+../DIO_prog.c:151: warning: control reaches end of non-void function
+Finished building: ../DIO_prog.c
+ 
+Building target: ULTRASONIC__IR_METALDETECTOR_ATMEGA32.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ULTRASONIC__IR_METALDETECTOR_ATMEGA32.map -mmcu=atmega32 -o "ULTRASONIC__IR_METALDETECTOR_ATMEGA32.elf"  ./DIO_prog.o ./main.o   
+Finished building target: ULTRASONIC__IR_METALDETECTOR_ATMEGA32.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ULTRASONIC__IR_METALDETECTOR_ATMEGA32.elf  >"ULTRASONIC__IR_METALDETECTOR_ATMEGA32.lss"
+Finished building: ULTRASONIC__IR_METALDETECTOR_ATMEGA32.lss
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ULTRASONIC__IR_METALDETECTOR_ATMEGA32.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    8348 bytes (25.5% Full)
+(.text + .data + .bootloader)
+
+Data:        266 bytes (13.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+17:26:15 Build Finished (took 6s.50ms)
+

@@ -1,0 +1,20 @@
+13:39:26 **** Build of configuration Debug for project RTOS1 ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 RTOS1.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    2296 bytes (7.0% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+13:39:42 Build Finished (took 15s.599ms)
+

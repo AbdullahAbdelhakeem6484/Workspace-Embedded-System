@@ -1,0 +1,42 @@
+23:56:12 **** Incremental Build of configuration Debug for project DoubleSevSeg_interrupt ****
+make all 
+Building file: ../sevseg_interrupt.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"sevseg_interrupt.d" -MT"sevseg_interrupt.o" -c -o "sevseg_interrupt.o" "../sevseg_interrupt.c"
+In file included from ../sevseg_interrupt.c:14:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../sevseg_interrupt.c:15:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+Finished building: ../sevseg_interrupt.c
+ 
+Building target: DoubleSevSeg_interrupt.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,DoubleSevSeg_interrupt.map -mmcu=atmega32 -o "DoubleSevSeg_interrupt.elf"  ./DIO_prog.o ./sevenSeg_prog.o ./sevseg_interrupt.o   
+Finished building target: DoubleSevSeg_interrupt.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S DoubleSevSeg_interrupt.elf  >"DoubleSevSeg_interrupt.lss"
+Finished building: DoubleSevSeg_interrupt.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex DoubleSevSeg_interrupt.elf  "DoubleSevSeg_interrupt.hex"
+Finished building: DoubleSevSeg_interrupt.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 DoubleSevSeg_interrupt.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5906 bytes (18.0% Full)
+(.text + .data + .bootloader)
+
+Data:         30 bytes (1.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:56:22 Build Finished (took 10s.395ms)
+

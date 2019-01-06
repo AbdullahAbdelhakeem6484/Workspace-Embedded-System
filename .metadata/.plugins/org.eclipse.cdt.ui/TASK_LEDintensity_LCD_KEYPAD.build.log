@@ -1,0 +1,48 @@
+15:23:03 **** Incremental Build of configuration Debug for project TASK_LEDintensity_LCD_KEYPAD ****
+make all 
+Building file: ../main.c
+In file included from ../main.c:7:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:9:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:46: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:52: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:54: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:71: warning: statement with no effect
+../main.c:74: warning: implicit declaration of function 'itoa'
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: TASK_LEDintensity_LCD_KEYPAD.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK_LEDintensity_LCD_KEYPAD.map -mmcu=atmega32 -o "TASK_LEDintensity_LCD_KEYPAD.elf"  ./ADC_prog.o ./DIO_prog.o ./LCD_prog.o ./main.o   
+Finished building target: TASK_LEDintensity_LCD_KEYPAD.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK_LEDintensity_LCD_KEYPAD.elf  >"TASK_LEDintensity_LCD_KEYPAD.lss"
+Finished building: TASK_LEDintensity_LCD_KEYPAD.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK_LEDintensity_LCD_KEYPAD.elf  "TASK_LEDintensity_LCD_KEYPAD.hex"
+Finished building: TASK_LEDintensity_LCD_KEYPAD.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK_LEDintensity_LCD_KEYPAD.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7898 bytes (24.1% Full)
+(.text + .data + .bootloader)
+
+Data:         48 bytes (2.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:23:15 Build Finished (took 12s.43ms)
+

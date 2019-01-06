@@ -1,0 +1,59 @@
+/*
+
+ * motor.c
+ *
+ *  Created on: 16/11/2018
+ *      Author: Abdullah Abdelhakeem
+ */
+#include "STD_Types.h"
+#include "macros.h"
+#include "DIO_interface.h"
+#include "DIO_private.h"
+#include <util/delay.h>
+
+void Motor_voidBackword(void)
+{
+	DIO_voidSetPinValue(PORT_C,PIN_4,LOW);
+	DIO_voidSetPinValue(PORT_C,PIN_5,HIGH);
+	DIO_voidSetPinValue(PORT_C,PIN_6,LOW);
+	DIO_voidSetPinValue(PORT_C,PIN_7,HIGH);
+
+
+}
+
+void Motor_voidFORWARD(void)
+    {
+DIO_voidSetPinValue(PORT_C,PIN_4,HIGH);
+DIO_voidSetPinValue(PORT_C,PIN_5,LOW);
+DIO_voidSetPinValue(PORT_C,PIN_6,HIGH);
+DIO_voidSetPinValue(PORT_C,PIN_7,LOW);
+
+    }
+
+void Motor_voidRight(void)
+    {
+	DIO_voidSetPinValue(PORT_C,PIN_4,HIGH); /*M1 stop*/
+	DIO_voidSetPinValue(PORT_C,PIN_5,HIGH);
+	DIO_voidSetPinValue(PORT_C,PIN_6,HIGH); /*M2 run*/
+	DIO_voidSetPinValue(PORT_C,PIN_7,LOW);
+
+    }
+
+void Motor_voidLeft(void)
+    {
+	DIO_voidSetPinValue(PORT_C,PIN_4,HIGH); /*M1 FORWARD*/
+	DIO_voidSetPinValue(PORT_C,PIN_5,LOW);
+	DIO_voidSetPinValue(PORT_C,PIN_6,HIGH);/*M2 STOP*/
+	DIO_voidSetPinValue(PORT_C,PIN_7,HIGH);
+
+    }
+
+
+
+
+
+
+
+
+
+

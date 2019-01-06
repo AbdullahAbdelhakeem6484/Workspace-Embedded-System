@@ -1,0 +1,51 @@
+23:51:54 **** Incremental Build of configuration Debug for project PROJECT ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../SERVO_interface.h:13,
+Finished building: ../main.c
+ 
+Building target: PROJECT.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,PROJECT.map -mmcu=atmega32 -o "PROJECT.elf"  ./DIO_prog.o ./EEPROM_prog.o ./I2C_prog.o ./LCD_prog.o ./SERVO_prog.o ./UART_prog.o ./keypad_prog.o ./main.o   
+                 from ../main.c:10:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:10:
+../SERVO_interface.h:15:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:184: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:255: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:266: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:181: warning: unused variable 'flag'
+../main.c:181: warning: unused variable 'i'
+../main.c:177: warning: unused variable 'key_pressed'
+Finished building target: PROJECT.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S PROJECT.elf  >"PROJECT.lss"
+Finished building: PROJECT.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex PROJECT.elf  "PROJECT.hex"
+Finished building: PROJECT.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 PROJECT.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   18720 bytes (57.1% Full)
+(.text + .data + .bootloader)
+
+Data:         46 bytes (2.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+23:52:06 Build Finished (took 12s.589ms)
+

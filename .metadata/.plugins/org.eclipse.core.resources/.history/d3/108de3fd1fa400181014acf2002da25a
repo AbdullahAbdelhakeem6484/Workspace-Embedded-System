@@ -1,0 +1,40 @@
+/*
+ * calculator.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+#include"STD_Types.h"
+#include"macros.h"
+#define F_CPU 12000000
+#include<util/delay.h>
+#include "DIO_interface.h"
+#include "LCD_interface.h"
+#include"keypad_interface.h"
+#include"keypad_config.h"
+#include"calc_interface.h"
+
+
+
+
+int main(void)
+{
+		cal_init();
+
+			dis_string(0,0,"When      Come    ;)");
+			dis_string(1,4,"Dreams    True ;)");
+
+			_delay_ms(50);
+
+			for (int start = 0;start < 25; ++start)
+			{
+				_delay_ms(5);
+				dis_shift('L');
+			}
+
+    	while(1)
+    	{
+			calculate();
+    	}
+}

@@ -1,0 +1,26 @@
+19:03:43 **** Incremental Build of configuration Debug for project keypad_opt ****
+make all 
+Building file: ../keypad.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"keypad.d" -MT"keypad.o" -c -o "keypad.o" "../keypad.c"
+../keypad.c:16:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+In file included from ../keypad.c:17:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../keypad.c: In function 'KPD_u8GetPressedKey':
+../keypad.c:102: error: 'DIO_PORTD' undeclared (first use in this function)
+../keypad.c:102: error: (Each undeclared identifier is reported only once
+../keypad.c:102: error: for each function it appears in.)
+../keypad.c:102: error: 'STD_LOW' undeclared (first use in this function)
+../keypad.c:108: error: too few arguments to function 'DIO_voidSetPinValue'
+../keypad.c:114: error: too few arguments to function 'DIO_voidSetPinValue'
+../keypad.c:124: error: 'STD_HIGH' undeclared (first use in this function)
+../keypad.c: In function 'main':
+../keypad.c:132: warning: implicit declaration of function 'KEYPAD_voidInit'
+../keypad.c:133: error: 'DDRB' undeclared (first use in this function)
+../keypad.c:138: error: 'no_key' undeclared (first use in this function)
+../keypad.c:140: error: 'PORTB' undeclared (first use in this function)
+make: *** [keypad.o] Error 1
+
+19:03:55 Build Finished (took 12s.500ms)
+

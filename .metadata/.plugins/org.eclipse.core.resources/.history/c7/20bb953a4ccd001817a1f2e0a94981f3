@@ -1,0 +1,211 @@
+/*
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+#include"STD_Types.h"
+#include"macros.h"
+#include "DIO_interface.h"
+#include "LCD_interface.h"
+#include "keypad_interface.h"
+#include "UART_interface.h"
+//#include "EEPROM_interface.h"
+#include "I2C_interface.h"
+#include "SERVO_interface.h"
+
+
+#include<avr/io.h>
+
+#define F_CPU 12000000
+#include<util/delay.h>
+
+
+int main(void)
+{
+
+
+	KEYPAD_voidInit();
+	LCD_voidInit();
+	I2C_voidInit();
+	EEPROM_voidInit();
+
+	DIO_voidSetPinDir(PORT_D,PIN_7,OUTPUT);
+
+	u8 a,b,c,d;
+
+	u8 i;
+
+
+for(i=0;i<3;i++)
+{
+	LCD_voidWriteString("PLS Enter Pass");
+
+while(1)
+{
+		a=KEYPAD_u8GetKey();
+		LCD_voidSetCursor (1,0);
+		 LCD_voidwriteNumber(a);
+
+
+		b=KEYPAD_u8GetKey();
+		LCD_voidSetCursor (1,1);
+		 LCD_voidwriteNumber(b);
+
+
+		c=KEYPAD_u8GetKey();
+		LCD_voidSetCursor (1,2);
+		 LCD_voidwriteNumber(c);
+
+
+		d=KEYPAD_u8GetKey();
+		LCD_voidSetCursor (1,3);
+		 LCD_voidwriteNumber(d);
+}
+}
+
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+int main(void)
+{
+
+	//UART_voidInit();
+	KEYPAD_voidInit();
+	LCD_voidInit();
+	I2C_voidInit();
+	EEPROM_voidInit();
+
+	DIO_voidSetPinDir(PORT_D,PIN_7,OUTPUT);
+
+	//u8 arr[4];
+	u8 a,b,c,d;
+	u8 flag=0;
+
+/*for(i=0;i<3;i++)
+{*/
+/*	LCD_voidWriteString("PLS Enter Pass");
+
+while(1)
+{
+	a=KEYPAD_u8GetKey();
+	LCD_voidSetCursor (1,0);
+	LCD_voidWriteCharacter(a);
+
+
+	b=KEYPAD_u8GetKey();
+	LCD_voidSetCursor (1,1);
+	LCD_voidWriteCharacter(b);
+
+
+	c=KEYPAD_u8GetKey();
+	LCD_voidSetCursor (1,2);
+	LCD_voidWriteCharacter(c);
+
+
+	d=KEYPAD_u8GetKey();
+	LCD_voidSetCursor (1,3);
+	LCD_voidWriteCharacter(d);
+
+
+
+	 //EEPROM_u8ReadByte(u8 page,u8 location);
+	/*	x=EEPROM_u8ReadByte(0,0);
+		x=EEPROM_u8ReadByte(0,1);
+		x=EEPROM_u8ReadByte(0,2);
+		x=EEPROM_u8ReadByte(0,3);*/
+
+/*
+
+		if((a==1)&&(b==2)&&(c==3)&&(d==4))
+			{
+				LCD_voidSetCursor (1,6);
+				LCD_voidWriteString("pass match");
+				_delay_ms(500);
+
+
+				LCD_voidSetCursor (1,6);
+				LCD_voidWriteString("open");
+				_delay_ms(500);
+
+				SERVO_voidAngle(90);
+				_delay_ms(3000);
+				SERVO_voidAngle(0);
+				flag=1;
+				//break;
+			}
+
+       /*else if (i<2)
+		   {
+    	   	   LCD_voidClear();
+			   LCD_voidWriteString("Try again: ");
+		   }*/
+//}
+
+
+
+
+/*
+}
+
+
+
+
+
+
+return 0;
+}
+
+*/
+
+
+
+
+
+
+
+
+/*
+
+int main(void)
+{
+
+	KEYPAD_voidInit();
+	 LCD_voidInit();
+	 u8 x;
+
+
+while(1)
+{
+	x = KEYPAD_u8GetKey();
+	LCD_voidSetCursor (0,0);
+	LCD_voidWrite(x);
+	//LCD_voidWriteCharacter(x);
+
+
+
+}
+
+
+
+return 0;
+}*/

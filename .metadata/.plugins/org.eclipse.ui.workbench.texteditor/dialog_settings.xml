@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="LCD_voidSetCursor (0,0);" key="selection"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="false" key="wholeword"/>
+		<list key="findhistory">
+			<item value="LCD_voidSetCursor (0,0);"/>
+			<item value="&#x09;&#x09;&#x09;if (x==0x80)"/>
+			<item value="1872"/>
+			<item value="main"/>
+			<item value="&#x09;&#x09;if(password[i]==1)  password[i]=&apos;1&apos;;"/>
+			<item value="Newpass[1]=UART_u8ReceiveByte();"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="284" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="391" key="DIALOG_HEIGHT"/>
+		<item value="801" key="DIALOG_X_ORIGIN"/>
+		<item value="117" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

@@ -1,0 +1,38 @@
+/*
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+#include"STD_Types.h"
+#define F_CPU 12000000
+#include<util/delay.h>
+#include<avr/io.h>
+
+arr_7seg[]={192,249,164,176,153,146,130,248,128,144};
+int main (void)
+{
+	u16 i;
+
+
+	DDRA=0XFF;
+	DDRD=0XFF;
+	DDRB=0XFF;
+while(1)
+{
+	for(i=0;i<10;i++)
+	{
+		PORTA=arr_7seg[i];
+		_delay_ms(1000);
+
+
+	}
+
+
+
+}
+
+return 0;
+}
+

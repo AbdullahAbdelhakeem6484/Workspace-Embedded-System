@@ -1,0 +1,100 @@
+/*
+ * main.c
+ *
+ *  Created on: 28/9/2018
+ *      Author: Abdullah Abdlhakeem
+ */
+#include"STD_Types.h"
+#include"macros.h"
+#include "DIO_interface.h"
+#include "SPI_interface.h"
+
+#include<avr/io.h>
+#include<avr/interrupt.h>
+#define F_CPU 12000000
+#include<util/delay.h>
+
+//full doublex
+//if u are master
+
+int main(void)
+{
+	SPI_voidMasterInit();
+	SPI_voidSlaveSelect();
+
+
+
+while(1)
+{
+	SPI_u8Transfer('a');
+	_delay_ms(1000);
+
+}
+
+
+
+return 0;
+}
+
+
+
+
+
+
+
+
+
+//if u are slave
+
+/*
+ int main(void)
+{
+	DIO_voidSetPinDir(PORT_A,PIN_0,OUTPUT);
+	SPI_voidSlaveInit();
+	u8 Receive ;
+
+
+
+while(1)
+{
+	Receive=SPI_u8Transfer(0xff);
+	if(Receive=='a')
+	{
+		DIO_voidTogglePinValue(PORT_A,PIN_0);
+
+
+	}
+
+
+}
+
+
+
+return 0;
+}
+ */
+
+
+
+
+
+
+
+
+
+
+//DIO_voidSetPinDir(PORT_A,PIN_0,OUTPUT);
+//DIO_voidSetPinValue(PORT_A,PIN_0,HIGH);
+//void __vector_11(void)  __attribute__((signal,__INTR_ATTRS));
+
+
+/*
+void __vector_11(void)
+{
+
+
+
+
+}*/
+
+

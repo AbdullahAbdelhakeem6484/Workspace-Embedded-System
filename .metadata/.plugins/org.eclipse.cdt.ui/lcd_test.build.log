@@ -1,0 +1,40 @@
+03:24:49 **** Incremental Build of configuration Debug for project lcd_test ****
+make all 
+Building file: ../LCD 8.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"LCD 8.d" -MT"LCD\ 8.d" -c -o "LCD 8.o" "../LCD 8.c"
+In file included from ../LCD 8.c:18:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../LCD 8.c
+ 
+Building target: lcd_test.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,lcd_test.map -mmcu=atmega32 -o "lcd_test.elf"  ./LCD\ 8.o   
+Finished building target: lcd_test.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S lcd_test.elf  >"lcd_test.lss"
+Finished building: lcd_test.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex lcd_test.elf  "lcd_test.hex"
+Finished building: lcd_test.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 lcd_test.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   12144 bytes (37.1% Full)
+(.text + .data + .bootloader)
+
+Data:         60 bytes (2.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+03:24:57 Build Finished (took 8s.853ms)
+

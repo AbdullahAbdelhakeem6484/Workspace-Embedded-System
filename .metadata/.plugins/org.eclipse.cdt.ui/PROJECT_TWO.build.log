@@ -1,0 +1,16 @@
+00:21:40 **** Incremental Build of configuration Debug for project PROJECT_TWO ****
+make all 
+Building file: ../main.c
+In file included from ../SERVO_interface.h:13,
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+                 from ../main.c:16:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:16:
+../SERVO_interface.h:15:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../main.c: In function 'main':
+make: *** [main.o] Error 1
+
+00:21:49 Build Finished (took 8s.640ms)
+

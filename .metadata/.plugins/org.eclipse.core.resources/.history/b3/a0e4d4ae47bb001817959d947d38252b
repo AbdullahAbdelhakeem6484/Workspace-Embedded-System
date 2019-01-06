@@ -1,0 +1,305 @@
+
+#include"macros.h"
+#include"STD_Types.h"
+#include"LCD_interface.h"
+#include"DIO_interface.h"
+#include"ADC_interface.h"
+#include<util/delay.h>
+#include<avr/io.h>
+#define F_CPU 12000000
+
+int main(void)
+{
+	//u8 arr[]={10,20,30,40,50,60,70,80,90,100};
+	u8 show[7];
+
+	//timer
+	//• Bit 6, 3 – WGM01:0: Waveform Generation Mode
+				SET_BIT(TCCR0,6);
+				CLEAR_BIT(TCCR0,3);
+	//Compare Output Mode, Fast PWM Mode(1) Clear OC0 on compare match, set OC0 at TOP
+				CLEAR_BIT(TCCR0,4);
+				SET_BIT(TCCR0,5);
+
+	//• Bit 2:0 – CS02:0: Clock Select clkI/O/(No prescaling)
+				SET_BIT(TCCR0,0);
+				CLEAR_BIT(TCCR0,1);
+				CLEAR_BIT(TCCR0,2);
+
+	DIO_voidSetPinDir(PORT_B,PIN_3,OUTPUT); //ocr0 timer
+
+	DIO_voidSetPinDir(PORT_C,PIN_0,INPUT);//keypad pushbutton to increment
+	DIO_voidSetPinDir(PORT_C,PIN_1,INPUT);//keypad pushbutton to decrement
+	DIO_voidSetPinDir(PORT_C,PIN_0,INPUT);//ok
+	DIO_voidSetPinValue(PORT_C,PIN_0,HIGH);//PULL UP
+	DIO_voidSetPinValue(PORT_C,PIN_1,HIGH);//PULL UP
+	DIO_voidSetPinValue(PORT_C,PIN_1,HIGH);//PULL UP
+
+	u8 x,y,z,a=0;
+
+
+
+
+	//ADC
+	//voltage divider
+	u16 digital,analog;
+
+
+	ADC_voidInit();
+	LCD_voidInit(); //lcd initialization
+
+	LCD_voidWriteString("Welcome On LCD");
+	_delay_ms(2000);
+
+
+
+	LCD_voidSetCursor(1,0);
+	LCD_voidWriteString("Select-Intensity");
+	LCD_voidSetCursor(2, 0);
+	LCD_voidWriteString("       %");
+	OCR0=0;
+
+	while(1)
+	{
+		x=x=GET_BIT(PINC,0);//increment
+		y=GET_BIT(PINC,1);//decrement
+		z=GET_BIT(PINC,2);	//done
+
+		//digital=ADC_u16GetValue(0);
+		//analog=(digital*5)/1024;
+		//OCR0=digital/5;
+
+	if(x==0)
+	{
+		a++;
+
+		//dtostrf(i, 6, 1, show); //convert float to string
+		if(OCR0<255)
+		{
+			if((OCR0<25))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("10");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("20");
+				
+			}
+			else if((OCR0>50)&&(OCR0<75))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("30");
+				
+			}	
+			else if((OCR0>75)&&(OCR0<100))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("40");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("50");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("60");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("70");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("80");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("90");
+				
+			}
+			else 
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("100");
+				
+			}
+		}
+
+	}
+	else if(y==0)
+	{
+		a--;
+
+		if(OCR0>0)
+		{
+			if((OCR0>0)&&(OCR0<25))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("10");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("20");
+				
+			}
+			else if((OCR0>50)&&(OCR0<75))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("30");
+				
+			}	
+			else if((OCR0>75)&&(OCR0<100))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("40");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("50");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("60");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("70");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("80");
+				
+			}
+			else if((OCR0>25)&&(OCR0<50))
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("90");
+				
+			}
+			else 
+			{	
+				LCD_voidSetCursor(2, 0);
+				LCD_voidWriteString("100");
+				
+			}
+		}
+	}
+
+
+	else if(z==0)
+	{
+		a=OCR0;
+		_delay_ms(50);
+
+	}
+
+
+
+	else {}
+}
+
+
+return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*if(x==0)
+	{
+		 if (OCR0<255)
+		{
+			a=OCR0++;
+			LCD_voidSetCursor(2, 0);
+			i+=10;
+			dtostrf(i, 6, 1, show);
+			LCD_voidWriteString(show);
+		}
+		_delay_ms(50);
+
+		//dtostrf(OCR0, 6, 1, show); //convert float to string
+
+		//arr++;
+
+	}
+	else if(y==0)
+	{
+		if (OCR0>0)
+			{
+				a=OCR0--;
+			}
+			_delay_ms(50);
+
+
+		dtostrf(OCR0, 6, 1, show); //convert float to string
+		LCD_voidSetCursor(2, 0);
+		LCD_voidWriteString(show);
+		//arr--;
+	}
+
+
+	else if(z==0)
+	{
+		LCD_voidSetCursor(2, 1);
+		LCD_voidWriteString(" ");
+		OCR0;
+	}
+
+	else {}*/
+
+
+
+
+/*else if(z==0)
+	{
+		if (OCR0<255)
+				{
+					OCR0++;
+
+				}
+
+		if (OCR0>0)
+				{
+					a=OCR0--;
+				}
+		_delay_ms(50);
+}*/

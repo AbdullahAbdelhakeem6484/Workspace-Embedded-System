@@ -1,0 +1,7 @@
+19:48:26 **** Clean-only build of configuration Debug for project CACULATOR_MULTFUN ****
+make clean 
+rm -rf  Calculator.o calculator_blocks.o Components/keypad.o Components/lcd.o Calculator.d calculator_blocks.d Components/keypad.d Components/lcd.d  
+rm -rf "Calculator.elf" "Calculator.a" "Calculator.hex" "Calculator.lss" "Calculator.eep" "Calculator.map"
+
+19:48:31 Build Finished (took 5s.102ms)
+

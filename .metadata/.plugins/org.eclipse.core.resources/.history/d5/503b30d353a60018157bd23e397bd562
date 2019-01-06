@@ -1,0 +1,39 @@
+/*
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+
+#include"../lib/STD_Types.h"
+#include"../lib/macros.h"
+#include<avr/io.h>
+
+int main (void)
+{
+	u8 x;
+	SET_BIT(DDRD,0);
+	CLEAR_BIT(DDRA,0);
+	SET_BIT(PORTA,0);
+	while(1)
+	{
+
+		x=GET_BIT(PINA,0);
+		if(x==0)  //pull down
+		{
+			SET_BIT(PORTD,0);
+		}
+		else
+		{
+			CLEAR_BIT(PORTD,0);
+
+		}
+
+
+	}
+
+return 0;
+
+
+}

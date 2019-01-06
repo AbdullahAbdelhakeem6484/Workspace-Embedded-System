@@ -1,0 +1,33 @@
+14:23:50 **** Incremental Build of configuration Debug for project blink_led ****
+make all 
+Building target: blink_led.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,blink_led.map -mmcu=atmega32 -o "blink_led.elf"  ./abdullah.o   
+Finished building target: blink_led.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S blink_led.elf  >"blink_led.lss"
+Finished building: blink_led.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex blink_led.elf  "blink_led.hex"
+Finished building: blink_led.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 blink_led.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7682 bytes (23.4% Full)
+(.text + .data + .bootloader)
+
+Data:         24 bytes (1.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+14:24:00 Build Finished (took 10s.210ms)
+

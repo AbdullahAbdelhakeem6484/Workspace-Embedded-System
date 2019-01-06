@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;EEBROM_DRIVER/I2C_interface.h&apos; to &apos;EEPROM_interface.h&apos;" description="Rename resource &apos;I2C_interface.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="I2C_interface.h" name="EEPROM_interface.h" stamp="1538831522650" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;EEBROM_DRIVER/I2C_prog.c&apos; to &apos;EEPROM_prog.c&apos;" description="Rename resource &apos;I2C_prog.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="I2C_prog.c" name="EEPROM_prog.c" stamp="1538831547666" updateReferences="true"/>
+</session>

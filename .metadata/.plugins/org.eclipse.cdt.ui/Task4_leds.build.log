@@ -1,0 +1,20 @@
+18:43:28 **** Incremental Build of configuration Debug for project Task4_leds ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Task4_leds.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7098 bytes (21.7% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:43:35 Build Finished (took 6s.355ms)
+

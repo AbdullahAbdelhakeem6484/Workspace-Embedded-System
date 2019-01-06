@@ -1,0 +1,20 @@
+18:48:04 **** Incremental Build of configuration Debug for project UART_SendChar_RecieveStr ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 UART_SendChar_RecieveStr.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1962 bytes (6.0% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (1.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+18:48:07 Build Finished (took 2s.988ms)
+

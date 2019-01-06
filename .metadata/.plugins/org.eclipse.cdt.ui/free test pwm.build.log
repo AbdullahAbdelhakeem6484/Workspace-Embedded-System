@@ -1,0 +1,11 @@
+19:43:27 **** Incremental Build of configuration Debug for project free test pwm ****
+make all 
+Building target: free test pwm.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,free test pwm.map -mmcu=atmega32 -o "free test pwm.elf"  ./DIO_prog.o ./main.o   
+avr-gcc.exe: test: No such file or directory
+avr-gcc.exe: pwm.map: No such file or directory
+make: *** [free test pwm.elf] Error 1
+
+19:43:34 Build Finished (took 7s.83ms)
+

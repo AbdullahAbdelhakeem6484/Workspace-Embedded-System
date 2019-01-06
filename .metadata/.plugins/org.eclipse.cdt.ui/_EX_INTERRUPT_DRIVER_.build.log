@@ -1,0 +1,22 @@
+16:39:50 **** Build of configuration Debug for project _EX_INTERRUPT_DRIVER_ ****
+make all 
+Building file: ../DIO_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"DIO_prog.d" -MT"DIO_prog.o" -c -o "DIO_prog.o" "../DIO_prog.c"
+../DIO_prog.c: In function 'DIO_u8GetPinValue':
+../DIO_prog.c:151: warning: control reaches end of non-void function
+Finished building: ../DIO_prog.c
+ 
+Building file: ../EX_Interrupt_prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"EX_Interrupt_prog.d" -MT"EX_Interrupt_prog.o" -c -o "EX_Interrupt_prog.o" "../EX_Interrupt_prog.c"
+Finished building: ../EX_Interrupt_prog.c
+ 
+Building target: _EX_INTERRUPT_DRIVER_.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,_EX_INTERRUPT_DRIVER_.map -mmcu=atmega32 -o "_EX_INTERRUPT_DRIVER_.elf"  ./DIO_prog.o ./EX_Interrupt_prog.o   
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o:(.init9+0x0): undefined reference to `main'
+make: *** [_EX_INTERRUPT_DRIVER_.elf] Error 1
+
+16:40:03 Build Finished (took 13s.479ms)
+

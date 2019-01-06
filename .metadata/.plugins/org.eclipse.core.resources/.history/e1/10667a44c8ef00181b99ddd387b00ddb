@@ -1,0 +1,15 @@
+/*
+ * ULTRASONIC.h
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+#ifndef ULTRASONIC_H_
+#define ULTRASONIC_H_
+
+void ULTRASONIC_voidInit(void);
+void ULTRASONIC_voidTriggr(void);s
+
+
+#endif /* ULTRASONIC_H_ */

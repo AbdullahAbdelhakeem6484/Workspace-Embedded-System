@@ -1,0 +1,33 @@
+00:04:56 **** Incremental Build of configuration Debug for project hbridge_2relay ****
+make all 
+Building target: hbridge_2relay.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,hbridge_2relay.map -mmcu=atmega32 -o "hbridge_2relay.elf"  ./DIO_prog.o ./hbridge_2rel.o   
+Finished building target: hbridge_2relay.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S hbridge_2relay.elf  >"hbridge_2relay.lss"
+Finished building: hbridge_2relay.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex hbridge_2relay.elf  "hbridge_2relay.hex"
+Finished building: hbridge_2relay.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 hbridge_2relay.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    5404 bytes (16.5% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+00:05:37 Build Finished (took 40s.373ms)
+

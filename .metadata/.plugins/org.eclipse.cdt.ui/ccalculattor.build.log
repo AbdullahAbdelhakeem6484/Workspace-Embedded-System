@@ -1,0 +1,33 @@
+16:09:49 **** Incremental Build of configuration Debug for project ccalculattor ****
+make all 
+Building target: ccalculattor.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,ccalculattor.map -mmcu=atmega32 -o "ccalculattor.elf"  ./GccApplicationxx.o ./calculator.o ./keypad.o ./lcD.o ./main.o   
+Finished building target: ccalculattor.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S ccalculattor.elf  >"ccalculattor.lss"
+Finished building: ccalculattor.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex ccalculattor.elf  "ccalculattor.hex"
+Finished building: ccalculattor.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 ccalculattor.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   53584 bytes (163.5% Full)
+(.text + .data + .bootloader)
+
+Data:        451 bytes (22.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+16:10:39 Build Finished (took 50s.576ms)
+

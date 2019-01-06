@@ -1,0 +1,20 @@
+21:34:55 **** Incremental Build of configuration Debug for project LAST_UPDATE_ROBBBBBBOT ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 LAST_UPDATE_ROBBBBBBOT.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7852 bytes (24.0% Full)
+(.text + .data + .bootloader)
+
+Data:        266 bytes (13.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+21:35:01 Build Finished (took 5s.389ms)
+

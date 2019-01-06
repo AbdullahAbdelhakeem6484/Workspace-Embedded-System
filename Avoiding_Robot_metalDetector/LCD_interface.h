@@ -1,0 +1,80 @@
+/*
+ * LCD_interface.h
+ *
+ *  Created on: Aug 17, 2018
+ *      Author: Abdullah Abdelhakeem
+ */
+
+#ifndef LCD_INTERFACE_H_
+#define LCD_INTERFACE_H_
+
+#define FunctionSet8bit2Line5x7Dots 0x38
+#define DisplayOnCursorOff          0x0C
+#define ClearWithDDRAM              0x01
+
+#define MoveCursorRight             0x14
+#define ShiftDisplayLeft            0x18
+#define ShiftDisplayRight           0x1C
+
+#define Row0_Coulmn0   0x80+0x00
+#define Row0_Coulmn1   0x80+0x01
+#define Row0_Coulmn2   0x80+0x02
+#define Row0_Coulmn3   0x80+0x03
+#define Row0_Coulmn4   0x80+0x04
+#define Row0_Coulmn5   0x80+0x05
+#define Row0_Coulmn6   0x80+0x06
+#define Row0_Coulmn7   0x80+0x07
+#define Row0_Coulmn8   0x80+0x08
+#define Row0_Coulmn9   0x80+0x09
+#define Row0_Coulmn10  0x80+0x0A
+#define Row0_Coulmn11  0x80+0x0B
+#define Row0_Coulmn12  0x80+0x0C
+#define Row0_Coulmn13  0x80+0x0D
+#define Row0_Coulmn14  0x80+0x0E
+#define Row0_Coulmn15  0x80+0x0F
+
+#define Row1_Coulmn0   0x80+0x40
+#define Row1_Coulmn1   0x80+0x41
+#define Row1_Coulmn2   0x80+0x42
+#define Row1_Coulmn3   0x80+0x43
+#define Row1_Coulmn4   0x80+0x44
+#define Row1_Coulmn5   0x80+0x45
+#define Row1_Coulmn6   0x80+0x46
+#define Row1_Coulmn7   0x80+0x47
+#define Row1_Coulmn8   0x80+0x48
+#define Row1_Coulmn9   0x80+0x49
+#define Row1_Coulmn10  0x80+0x4A
+#define Row1_Coulmn11  0x80+0x4B
+#define Row1_Coulmn12  0x80+0x4C
+#define Row1_Coulmn13  0x80+0x4D
+#define Row1_Coulmn14  0x80+0x4E
+#define Row1_Coulmn15  0x80+0x4F
+
+void LCD_voidInit(void);
+
+void LCD_voidWriteCharacter(u8 Charater);
+
+void LCD_voidSendCommand(u8 Command);
+
+void LCD_voidWriteString(u8* String);
+
+void LCD_voidSetCursor (u8 R ,u8 C);
+
+void LCD_voidShiftRightAndLeft(u8* String);
+
+void LCD_voidSinusoidal(u8* String);
+
+void LCD_voidMovingSinusoidalCharacter(u8 Character);
+
+
+void LCD_voidWrite(u8 Num_1);
+
+
+
+void LCD_voidwriteNumber(u32 Num,u8 R,u8 C);
+
+
+
+
+
+#endif /* LCD_INTERFACE_H_ */

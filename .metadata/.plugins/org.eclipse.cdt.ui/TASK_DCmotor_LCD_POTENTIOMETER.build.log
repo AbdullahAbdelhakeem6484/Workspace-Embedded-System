@@ -1,0 +1,49 @@
+01:09:45 **** Incremental Build of configuration Debug for project TASK_DCmotor_LCD_POTENTIOMETER ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../main.c:7:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+../main.c:9:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:36: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:47: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:55: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:63: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:70: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+../main.c:77: warning: pointer targets in passing argument 1 of 'LCD_voidWriteString' differ in signedness
+Finished building: ../main.c
+ 
+Building target: TASK_DCmotor_LCD_POTENTIOMETER.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,TASK_DCmotor_LCD_POTENTIOMETER.map -mmcu=atmega32 -o "TASK_DCmotor_LCD_POTENTIOMETER.elf"  ./ADC_prog.o ./DIO_prog.o ./LCD_prog.o ./main.o   
+Finished building target: TASK_DCmotor_LCD_POTENTIOMETER.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S TASK_DCmotor_LCD_POTENTIOMETER.elf  >"TASK_DCmotor_LCD_POTENTIOMETER.lss"
+Finished building: TASK_DCmotor_LCD_POTENTIOMETER.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex TASK_DCmotor_LCD_POTENTIOMETER.elf  "TASK_DCmotor_LCD_POTENTIOMETER.hex"
+Finished building: TASK_DCmotor_LCD_POTENTIOMETER.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 TASK_DCmotor_LCD_POTENTIOMETER.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    7834 bytes (23.9% Full)
+(.text + .data + .bootloader)
+
+Data:        316 bytes (15.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+01:10:04 Build Finished (took 19s.354ms)
+

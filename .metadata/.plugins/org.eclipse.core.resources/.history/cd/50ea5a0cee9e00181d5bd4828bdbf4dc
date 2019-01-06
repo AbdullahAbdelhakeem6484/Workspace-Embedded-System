@@ -1,0 +1,29 @@
+/*
+ * main.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+
+#define F_CPU 12000000
+#include <avr/io.h>
+#include <util/delay.h>
+
+char arr[]={0b01011111,0b00000110,0b00111011,0b00101111,0b01100110,0b01101101,0b01111101,0b00000111,0b01111111,0b01101111};
+int main (void)
+{
+	int i=0;
+	DDRA=0xff;
+
+while(1)
+{
+	for(i=0x00;i<0x0f;i++)
+	{
+		PORTA=arr[i];
+		_delay_ms(1000);
+	}
+   }
+	return 0;
+}
+

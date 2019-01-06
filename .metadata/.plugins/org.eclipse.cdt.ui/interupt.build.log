@@ -1,0 +1,20 @@
+00:54:41 **** Incremental Build of configuration Debug for project interupt ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 interupt.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1726 bytes (5.3% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+00:54:45 Build Finished (took 3s.905ms)
+
