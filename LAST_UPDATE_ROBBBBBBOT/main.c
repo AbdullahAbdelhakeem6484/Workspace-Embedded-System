@@ -1,14 +1,6 @@
 /*
  * main.c
  *
- *  Created on: ??þ/??þ/????
- *      Author: Fly labs
- */
-
-
-/*
- * main.c
- *
  *   Created on: 27/11/2018
  *      Author: Abdullah Abdelhakeem
  */
@@ -19,6 +11,7 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>
+#define F_CPU 12000000
 
 
 int TimerOverflow = 0;
@@ -62,7 +55,7 @@ int main (void)
 	u32 count;
 
 
-	/*PWM TIMER0 AND TIMER2**/
+	/*PWM TIMER0 AND TIMER2*/
 	DIO_voidSetPinDir(PORT_B,PIN_3,OUTPUT); //OC0
 	DIO_voidSetPinDir(PORT_D,PIN_7,OUTPUT); //OC2
 
@@ -91,7 +84,7 @@ int main (void)
 
 	/*ULTRASONIC*/
 	DIO_voidSetPinDir(PORT_D,PIN_1,OUTPUT); /*trigger as output */
-	//DIO_voidSetPinDir(PORT_D,PIN_6,INPUT); /*echo as input*/
+	DIO_voidSetPinDir(PORT_D,PIN_6,INPUT); /*echo as input*/
 	DIO_voidSetPinValue(PORT_D,PIN_6,HIGH);/*PULL UP*/
 
 	/*BOTH IR sensors pins are declared as input*/
@@ -147,7 +140,7 @@ while(1)
 
 
 	//ULTRASONIC_voidCalculateDistance();
-	if(distance>10)/*FORWARD*/
+	if(distance>20)/*FORWARD*/
 		{
 			set_timercounter0_compare_value(180);
 			/*OCR0 register value is set to 180*/
@@ -155,11 +148,12 @@ while(1)
 			set_timercounter2_compare_value(180);
 			/*OCR2 register value is set to 180*/
 			Motor_voidFORWARD();
+
 		}
 
 
 	//ULTRASONIC_voidCalculateDistance();
-		if((distance<=10) &&(GET_BIT(PIND,3)==1) &&(GET_BIT(PIND,4)==0))/*right sensor is blocked*/
+	if((distance<=20) &&(GET_BIT(PIND,3)==1) &&(GET_BIT(PIND,4)==0))/*right sensor is blocked*/
 		{
 			set_timercounter0_compare_value(180);
 			/*OCR0 register value is set to 180*/
@@ -176,7 +170,7 @@ while(1)
 		}
 
 		//ULTRASONIC_voidCalculateDistance();
-		if((distance<=10) &&(GET_BIT(PIND,3)==0) &&(GET_BIT(PIND,4)==1))/*both sensor is open*/
+	if((distance<=20) &&(GET_BIT(PIND,3)==0) &&(GET_BIT(PIND,4)==1))/*both sensor is open*/
 		{
 			set_timercounter0_compare_value(180);
 			/*OCR0 register value is set to 180*/
@@ -191,7 +185,7 @@ while(1)
 
 
 		}
-		if((distance<=10) &&(GET_BIT(PIND,3)==0) &&(GET_BIT(PIND,4)==0))
+	if((distance<=20) &&(GET_BIT(PIND,3)==0) &&(GET_BIT(PIND,4)==0))
 		    {
 				set_timercounter0_compare_value(180);
 				/*OCR0 register value is set to 180*/
@@ -201,8 +195,8 @@ while(1)
 				Motor_voidBackword();
 		    }
 
-		if((distance<=10) &&(GET_BIT(PIND,3)==1) &&(GET_BIT(PIND,4)==1))
-		    {
+	 if((distance<=20) &&(GET_BIT(PIND,3)==1) &&(GET_BIT(PIND,4)==1))
+	 {
 				set_timercounter0_compare_value(180);
 				/*OCR0 register value is set to 180*/
 

@@ -1,0 +1,13 @@
+/*
+ * IR-SENSOR.h
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+#ifndef IR_SENSOR_H_
+#define IR_SENSOR_H_
+
+void IR_SENSOR_voidInit(void);
+
+#endif /* IR_SENSOR_H_ */

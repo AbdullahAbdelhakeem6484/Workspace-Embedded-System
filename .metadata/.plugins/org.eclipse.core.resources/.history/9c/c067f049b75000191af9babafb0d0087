@@ -1,0 +1,130 @@
+/*
+ * main.c
+
+ *
+ *   Created on: 27/11/2018
+ *      Author: Abdullah Abdelhakeem
+ */
+#include "../lib/std_types.h"
+#include "../lib/macros.h"
+#include"MOTOR.h"
+#include"TIMER02_interface.h"
+#include"IR-SENSOR.h"
+#include"EX_Interrupt_config.h"
+#include"ULTRASONIC.h"
+#include"TIMER1_interface.h"
+
+
+
+
+int main (void)
+{
+	/*PWM TIMER0 AND TIMER2*/
+	Timer0_voidInit(); //OC0
+	Timer2_voidInit();//OC2
+
+/*************************/
+	set_timercounter0_mode(3);
+	/*Timer counter 0 is set to fast pwm mode*/
+	set_timercounter0_prescaler(8);
+	/*Timer counter 0 frequency is set to 3.90625KHz*/
+	set_timercounter0_output_mode(2);
+	/*Timer counter 0 output mode is set  to non-inverting mode*/
+/**************************/
+	set_timercounter2_mode(3);
+	/*Timer counter 2 is set to fast pwm mode*/
+	set_timercounter2_prescaler(8);
+	/*Timer counter 2 frequency is set to 3.90625KHz*/
+	set_timercounter2_output_mode(2);
+	/*Timer counter 2 output mode is set to non-inverting mode*/
+
+
+
+
+
+	/*ULTRASONIC*/
+	ULTRASONIC_voidInit();
+
+	/*BOTH IR sensors pins are declared as input*/
+	IR_Right_SENSOR_voidInit(); // RIGHT SENSOR
+	IR_Left_SENSOR_voidInit();//LEFT SENSOR
+
+
+	/*motors*/
+	MOTOR_voidInit();
+
+	//sei();					/* Enable global interrupt SET_BIT(SREG,7) */
+	//TIMSK = (1 << TOIE1);	/* Enable Timer1 overflow interrupts */
+	//TCCR1A = 0;				/* Set all bit to zero Normal operation */
+
+
+	EX_Interrupt_voidInitINT0();
+	EX_Interrupt_voidSetINT0();
+
+
+
+
+
+while(1)
+{
+
+	ULTRASONIC_voidTrigger();
+	ULTRASONIC_voidCalculation();
+	//ULTRASONIC_voidCalculateDistance();
+	if(distance>25)/*OPENED FROM FRONT*/
+		{
+			set_timercounter0_compare_value(180);
+			/*OCR0 register value is set to 180*/
+			set_timercounter2_compare_value(180);
+			/*OCR2 register value is set to 180*/
+			Motor_voidFORWARD();
+		}
+
+
+	//ULTRASONIC_voidCalculateDistance();
+	if((distance<=25) &&(GET_BIT(PIND,3)==1) &&(GET_BIT(PIND,4)==0))/*CLOSED FROM RIGHT AND FRONT*/
+		{
+			set_timercounter0_compare_value(255);
+			/*OCR0 register value is set to 180*/
+			set_timercounter2_compare_value(255);
+			/*OCR2 register value is set to 180*/
+			Motor_voidRIGHT();
+		}
+
+		//ULTRASONIC_voidCalculateDistance();
+	if((distance<=25) &&(GET_BIT(PIND,3)==0) &&(GET_BIT(PIND,4)==1))/*CLOSED FROM LEFT AND FRONT*/
+		{
+			set_timercounter0_compare_value(255);
+			/*OCR0 register value is set to 180*/
+			set_timercounter2_compare_value(255);
+			/*OCR2 register value is set to 180*/
+			Motor_voidLEFT();
+		}
+
+	if((distance<=25) &&(GET_BIT(PIND,3)==0) &&(GET_BIT(PIND,4)==0))/*CLOSED FROM ALL DIRECTIONS*/
+		{
+			set_timercounter0_compare_value(200);
+			/*OCR0 register value is set to 180*/
+			set_timercounter2_compare_value(200);
+			/*OCR2 register value is set to 180*/
+			Motor_voidBackword();
+		}
+
+	 if((distance<=25) &&(GET_BIT(PIND,3)==1) &&(GET_BIT(PIND,4)==1)) /*ONLY <=25 CM*/
+		 {
+			set_timercounter0_compare_value(255);
+			/*OCR0 register value is set to 180*/
+			set_timercounter2_compare_value(255);
+			/*OCR2 register value is set to 180*/
+			Motor_voidDefault();
+		}
+	 else
+			 { }
+
+	}
+return 0;
+}
+
+
+
+

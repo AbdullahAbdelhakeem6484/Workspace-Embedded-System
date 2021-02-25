@@ -10,7 +10,7 @@
 #include"macros.h"
 #include "DIO_interface.h"
 #include<avr/io.h>
-//#include "UART_interface.h"
+#include "SPI_interface.h"
 
 
 void SPI_voidMasterInit(void)

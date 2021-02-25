@@ -294,17 +294,17 @@ LOAD c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/.
 .signature
  *(.signature*)
 
-.stab           0x00000000      0xa98
+.stab           0x00000000      0xaa4
  *(.stab)
  .stab          0x00000000      0x480 ./ADC_prog.o
- .stab          0x00000480      0x450 ./DIO_prog.o
-                                0x600 (size before relaxing)
- .stab          0x000008d0      0x1c8 ./main.o
+ .stab          0x00000480      0x45c ./DIO_prog.o
+                                0x60c (size before relaxing)
+ .stab          0x000008dc      0x1c8 ./main.o
                                 0x3cc (size before relaxing)
 
-.stabstr        0x00000000      0x9c6
+.stabstr        0x00000000      0xa2e
  *(.stabstr)
- .stabstr       0x00000000      0x9c6 ./ADC_prog.o
+ .stabstr       0x00000000      0xa2e ./ADC_prog.o
 
 .stab.excl
  *(.stab.excl)

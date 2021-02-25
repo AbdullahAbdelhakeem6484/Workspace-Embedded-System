@@ -33,7 +33,7 @@ void Timer_voidInit(u16 Start)
 	CLEAR_BIT(TCCR0,4);
 	SET_BIT(TCCR0,5);
 #elif Compare_Output_Mode_Non_PWM ==    Non_PWM_Set_OC0
-	Set_BIT(TCCR0,4);
+	SET_BIT(TCCR0,4);
 	SET_BIT(TCCR0,5);
 #endif
 //________________________________________________________________
@@ -52,7 +52,7 @@ void Timer_voidInit(u16 Start)
 	CLEAR_BIT(TCCR0,4);
 	SET_BIT(TCCR0,5);
 #elif Compare_Output_Mode_PWM_Phase_Correct == Compare_Mode_Phase_Correct_Set_OC0_Upcounting_Clear_OC0_Downcounting
-	Set_BIT(TCCR0,4);
+	SET_BIT(TCCR0,4);
 	SET_BIT(TCCR0,5);
 #endif
 //___________________________________________________________________

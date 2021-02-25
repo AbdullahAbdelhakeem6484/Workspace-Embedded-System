@@ -155,7 +155,7 @@ LOAD c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/.
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1da4
+.text           0x00000000     0x1dae
  *(.vectors)
  .vectors       0x00000000       0x54 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
                 0x00000000                __vectors
@@ -290,61 +290,61 @@ LOAD c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/.
  .text.Motor_voidFORWARD
                 0x0000144e       0x36 ./main.o
                 0x0000144e                Motor_voidFORWARD
- .text.main     0x00001484      0x53e ./main.o
+ .text.main     0x00001484      0x548 ./main.o
                 0x00001484                main
  .text.set_timercounter0_mode
-                0x000019c2       0x76 ./main.o
-                0x000019c2                set_timercounter0_mode
+                0x000019cc       0x76 ./main.o
+                0x000019cc                set_timercounter0_mode
  .text.set_timercounter0_prescaler
-                0x00001a38       0x3e ./main.o
-                0x00001a38                set_timercounter0_prescaler
+                0x00001a42       0x3e ./main.o
+                0x00001a42                set_timercounter0_prescaler
  .text.set_timercounter0_output_mode
-                0x00001a76       0x30 ./main.o
-                0x00001a76                set_timercounter0_output_mode
+                0x00001a80       0x30 ./main.o
+                0x00001a80                set_timercounter0_output_mode
  .text.enable_timercounter0_interrupt
-                0x00001aa6       0x3a ./main.o
-                0x00001aa6                enable_timercounter0_interrupt
+                0x00001ab0       0x3a ./main.o
+                0x00001ab0                enable_timercounter0_interrupt
  .text.disable_timercounter0_interrupt
-                0x00001ae0       0x3c ./main.o
-                0x00001ae0                disable_timercounter0_interrupt
+                0x00001aea       0x3c ./main.o
+                0x00001aea                disable_timercounter0_interrupt
  .text.set_timercounter0_compare_value
-                0x00001b1c       0x1c ./main.o
-                0x00001b1c                set_timercounter0_compare_value
+                0x00001b26       0x1c ./main.o
+                0x00001b26                set_timercounter0_compare_value
  .text.set_timercounter2_mode
-                0x00001b38       0x76 ./main.o
-                0x00001b38                set_timercounter2_mode
+                0x00001b42       0x76 ./main.o
+                0x00001b42                set_timercounter2_mode
  .text.set_timercounter2_prescaler
-                0x00001bae       0x3e ./main.o
-                0x00001bae                set_timercounter2_prescaler
+                0x00001bb8       0x3e ./main.o
+                0x00001bb8                set_timercounter2_prescaler
  .text.set_timercounter2_output_mode
-                0x00001bec       0x30 ./main.o
-                0x00001bec                set_timercounter2_output_mode
+                0x00001bf6       0x30 ./main.o
+                0x00001bf6                set_timercounter2_output_mode
  .text.enable_timercounter2_interrupt
-                0x00001c1c       0x40 ./main.o
-                0x00001c1c                enable_timercounter2_interrupt
+                0x00001c26       0x40 ./main.o
+                0x00001c26                enable_timercounter2_interrupt
  .text.disable_timercounter2_interrupt
-                0x00001c5c       0x42 ./main.o
-                0x00001c5c                disable_timercounter2_interrupt
+                0x00001c66       0x42 ./main.o
+                0x00001c66                disable_timercounter2_interrupt
  .text.set_timercounter2_compare_value
-                0x00001c9e       0x1c ./main.o
-                0x00001c9e                set_timercounter2_compare_value
+                0x00001ca8       0x1c ./main.o
+                0x00001ca8                set_timercounter2_compare_value
  .text.__vector_9
-                0x00001cba       0x3a ./main.o
-                0x00001cba                __vector_9
- .text.libgcc   0x00001cf4       0x3e c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
-                0x00001cf4                __mulsi3
- .text.libgcc   0x00001d32        0x0 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
- .text.libgcc   0x00001d32        0x0 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
- .text.libgcc   0x00001d32       0x38 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
-                0x00001d32                __prologue_saves__
- .text.libgcc   0x00001d6a       0x36 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
-                0x00001d6a                __epilogue_restores__
- .text.libgcc   0x00001da0        0x0 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
-                0x00001da0                . = ALIGN (0x2)
+                0x00001cc4       0x3a ./main.o
+                0x00001cc4                __vector_9
+ .text.libgcc   0x00001cfe       0x3e c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_mulsi3.o)
+                0x00001cfe                __mulsi3
+ .text.libgcc   0x00001d3c        0x0 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .text.libgcc   0x00001d3c        0x0 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_clear_bss.o)
+ .text.libgcc   0x00001d3c       0x38 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_prologue.o)
+                0x00001d3c                __prologue_saves__
+ .text.libgcc   0x00001d74       0x36 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_epilogue.o)
+                0x00001d74                __epilogue_restores__
+ .text.libgcc   0x00001daa        0x0 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_copy_data.o)
+                0x00001daa                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00001da0        0x0 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
-                0x00001da0                exit
-                0x00001da0                _exit
+ .fini9         0x00001daa        0x0 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+                0x00001daa                exit
+                0x00001daa                _exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -363,11 +363,11 @@ LOAD c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/.
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00001da0        0x4 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
+ .fini0         0x00001daa        0x4 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001da4                _etext = .
+                0x00001dae                _etext = .
 
-.data           0x00800060      0x108 load address 0x00001da4
+.data           0x00800060      0x108 load address 0x00001dae
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  .data          0x00800060        0x0 c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/../lib/gcc/avr/4.3.3/../../../../avr/lib/avr5/crtm32.o
@@ -439,8 +439,8 @@ LOAD c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/.
                 0x00800168                TimerOverflow
  *(COMMON)
                 0x0080016a                PROVIDE (__bss_end, .)
-                0x00001da4                __data_load_start = LOADADDR (.data)
-                0x00001eac                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00001dae                __data_load_start = LOADADDR (.data)
+                0x00001eb6                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080016a        0x0
                 0x0080016a                PROVIDE (__noinit_start, .)
@@ -465,11 +465,11 @@ LOAD c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/bin/.
 .signature
  *(.signature*)
 
-.stab           0x00000000     0x102c
+.stab           0x00000000     0x1038
  *(.stab)
  .stab          0x00000000      0x420 ./DIO_prog.o
- .stab          0x00000420      0xc0c ./main.o
-                                0xc90 (size before relaxing)
+ .stab          0x00000420      0xc18 ./main.o
+                                0xc9c (size before relaxing)
 
 .stabstr        0x00000000      0xc59
  *(.stabstr)

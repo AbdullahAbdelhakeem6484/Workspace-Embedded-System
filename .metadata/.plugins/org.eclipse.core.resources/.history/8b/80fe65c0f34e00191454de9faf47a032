@@ -1,0 +1,17 @@
+/*
+ * IR-SENSOR.c
+ *
+ *  Created on: ??þ/??þ/????
+ *      Author: Fly labs
+ */
+
+
+void IR_SENSOR_voidInit(void)
+{
+	/*BOTH IR sensors pins are declared as input*/
+		DIO_voidSetPinDir(PORT_D,PIN_3,INPUT); // RIGHT SENSOR
+		DIO_voidSetPinValue(PORT_D,PIN_3,HIGH);
+		DIO_voidSetPinDir(PORT_D,PIN_4,INPUT);//LEFT SENSOR
+		DIO_voidSetPinValue(PORT_D,PIN_4,HIGH);
+
+}

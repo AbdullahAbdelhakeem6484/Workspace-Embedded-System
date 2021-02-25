@@ -47,7 +47,7 @@ int main(void)
 
 
 		digital=ADC_u16GetCurrentValue();
-		analog=(digital*500)/1024; //to be compatability
+		analog=(digital*5000)/1024; //to be compatability
 		if(analog>30)
 		{
 			DIO_voidSetPinValue(PORT_C,PIN_0,HIGH);

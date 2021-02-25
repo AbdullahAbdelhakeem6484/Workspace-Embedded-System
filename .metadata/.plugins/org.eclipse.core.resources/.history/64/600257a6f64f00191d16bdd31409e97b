@@ -1,0 +1,78 @@
+/*
+ * MOTOR.c
+
+
+ *
+ *   Created on: 27/11/2018
+ *      Author: Abdullah Abdelhakeem
+ */
+#include"MOTOR.h"
+void MOTOR_voidInit(void)
+{
+	/*motor one*/
+	DIO_voidSetPinDir(PORT_C,PIN_4,OUTPUT);
+	DIO_voidSetPinDir(PORT_C,PIN_5,OUTPUT);
+	/*motor two*/
+	DIO_voidSetPinDir(PORT_C,PIN_6,OUTPUT);
+	DIO_voidSetPinDir(PORT_C,PIN_7,OUTPUT);
+}
+void Motor_voidBackword(void)
+{
+	DIO_voidSetPinValue(PORT_C,PIN_4,LOW); /*Motor_1___pin1A*/
+	DIO_voidSetPinValue(PORT_C,PIN_5,HIGH); /*Motor_1___pin2A*/
+	DIO_voidSetPinValue(PORT_C,PIN_6,LOW); /*Motor_2___pin1B*/
+	DIO_voidSetPinValue(PORT_C,PIN_7,HIGH);  /*Motor_2___pin2B*/
+
+
+}
+void Motor_voidFORWARD(void)
+    {
+	DIO_voidSetPinValue(PORT_C,PIN_4,HIGH);
+	DIO_voidSetPinValue(PORT_C,PIN_5,LOW);
+	DIO_voidSetPinValue(PORT_C,PIN_6,HIGH);
+	DIO_voidSetPinValue(PORT_C,PIN_7,LOW);
+
+    }
+
+void Motor_voidRIGHT(void)
+{
+	DIO_voidSetPinValue(PORT_C,PIN_4,HIGH); /*M1 STOP*/
+	DIO_voidSetPinValue(PORT_C,PIN_5,HIGH);
+	DIO_voidSetPinValue(PORT_C,PIN_6,HIGH); /*M2 RUN*/
+	DIO_voidSetPinValue(PORT_C,PIN_7,LOW);
+	//_delay_ms(1000);
+}
+
+void Motor_voidLEFT(void)
+{
+	DIO_voidSetPinValue(PORT_C,PIN_4,HIGH); /*M1 RUN*/
+	DIO_voidSetPinValue(PORT_C,PIN_5,LOW);
+	DIO_voidSetPinValue(PORT_C,PIN_6,HIGH);/*M2 STOP*/
+	DIO_voidSetPinValue(PORT_C,PIN_7,HIGH);
+	//_delay_ms(1000);
+
+}
+
+void Motor_voidStop(void)
+{
+	DIO_voidSetPinValue(PORT_C,PIN_4,HIGH); /*M1 RUN*/
+	DIO_voidSetPinValue(PORT_C,PIN_5,HIGH);
+	DIO_voidSetPinValue(PORT_C,PIN_6,HIGH);/*M2 STOP*/
+	DIO_voidSetPinValue(PORT_C,PIN_7,HIGH);
+	_delay_ms(1000);
+
+
+}
+void Motor_voidDefault(void)
+{
+	DIO_voidSetPinValue(PORT_C,PIN_4,HIGH); /*M1 RUN*/
+	DIO_voidSetPinValue(PORT_C,PIN_5,LOW);
+	_delay_ms(1000);
+	DIO_voidSetPinValue(PORT_C,PIN_6,HIGH); /*M2 RUN*/
+	DIO_voidSetPinValue(PORT_C,PIN_7,LOW);
+	_delay_ms(1000);
+
+
+}
+
+

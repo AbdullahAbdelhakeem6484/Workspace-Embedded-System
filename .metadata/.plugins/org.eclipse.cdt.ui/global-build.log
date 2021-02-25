@@ -1,15 +1,55 @@
-00:48:35 **** Incremental Build of configuration Debug for project test1234 ****
+14:34:17 **** Incremental Build of configuration Debug for project IMT_PROJECT2018-2019 ****
 make all 
+Building file: ../ULTRASONIC.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"ULTRASONIC.d" -MT"ULTRASONIC.o" -c -o "ULTRASONIC.o" "../ULTRASONIC.c"
+In file included from ../ULTRASONIC.h:8,
+                 from ../ULTRASONIC.c:8:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../ULTRASONIC.c:8:
+../ULTRASONIC.h:9:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+Finished building: ../ULTRASONIC.c
+ 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=12000000UL -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+In file included from ../MOTOR.h:11,
+                 from ../main.c:33:
+c:/users/fly labs/desktop/imt tools/interfacing/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+In file included from ../main.c:33:
+../MOTOR.h:12:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+../main.c: In function 'main':
+../main.c:47: warning: implicit declaration of function 'Timer2_voidInit'
+../main.c:73: warning: implicit declaration of function 'EX_Interrupt_voidInitINT0'
+../main.c:74: warning: implicit declaration of function 'EX_Interrupt_voidSetINT0'
+../main.c:79: warning: implicit declaration of function 'ULTRASONIC_voidCalculation'
+Finished building: ../main.c
+ 
+Building target: IMT_PROJECT2018-2019.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,IMT_PROJECT2018-2019.map -mmcu=atmega32 -o "IMT_PROJECT2018-2019.elf"  ./DIO_prog.o ./EX_Interrupt_prog.o ./IR-SENSOR.o ./MOTOR.o ./TIMER02_prog.o ./TIMER1_prog.o ./ULTRASONIC.o ./main.o   
+Finished building target: IMT_PROJECT2018-2019.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S IMT_PROJECT2018-2019.elf  >"IMT_PROJECT2018-2019.lss"
+Finished building: IMT_PROJECT2018-2019.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex IMT_PROJECT2018-2019.elf  "IMT_PROJECT2018-2019.hex"
+Finished building: IMT_PROJECT2018-2019.hex
+ 
 Invoking: Print Size
-avr-size --format=avr --mcu=atmega32 test1234.elf
+avr-size --format=avr --mcu=atmega32 IMT_PROJECT2018-2019.elf
 AVR Memory Usage
 ----------------
 Device: atmega32
 
-Program:   10064 bytes (30.7% Full)
+Program:    8884 bytes (27.1% Full)
 (.text + .data + .bootloader)
 
-Data:        266 bytes (13.0% Full)
+Data:        276 bytes (13.5% Full)
 (.data + .bss + .noinit)
 
 

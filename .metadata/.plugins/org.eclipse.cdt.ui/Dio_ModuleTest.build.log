@@ -1,0 +1,78 @@
+12:48:06 **** Build of configuration Debug for project Dio_ModuleTest ****
+make all 
+Building file: ../Det.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Det.d" -MT"Det.o" -c -o "Det.o" "../Det.c"
+Finished building: ../Det.c
+ 
+Building file: ../Dio.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Dio.d" -MT"Dio.o" -c -o "Dio.o" "../Dio.c"
+../Dio.c: In function 'Dio_Init':
+../Dio.c:58: warning: assignment discards qualifiers from pointer target type
+../Dio.c: In function 'Dio_WriteChannel':
+../Dio.c:111: warning: assignment discards qualifiers from pointer target type
+../Dio.c:113: warning: assignment discards qualifiers from pointer target type
+../Dio.c:115: warning: assignment discards qualifiers from pointer target type
+../Dio.c:117: warning: assignment discards qualifiers from pointer target type
+../Dio.c: In function 'Dio_ReadChannel':
+../Dio.c:187: warning: assignment discards qualifiers from pointer target type
+../Dio.c:189: warning: assignment discards qualifiers from pointer target type
+../Dio.c:191: warning: assignment discards qualifiers from pointer target type
+../Dio.c:193: warning: assignment discards qualifiers from pointer target type
+../Dio.c:211: warning: control reaches end of non-void function
+../Dio.c: In function 'Dio_FlipChannel':
+../Dio.c:303: warning: assignment discards qualifiers from pointer target type
+../Dio.c:304: warning: assignment discards qualifiers from pointer target type
+../Dio.c:306: warning: assignment discards qualifiers from pointer target type
+../Dio.c:307: warning: assignment discards qualifiers from pointer target type
+../Dio.c:309: warning: assignment discards qualifiers from pointer target type
+../Dio.c:310: warning: assignment discards qualifiers from pointer target type
+../Dio.c:312: warning: assignment discards qualifiers from pointer target type
+../Dio.c:313: warning: assignment discards qualifiers from pointer target type
+../Dio.c:333: warning: control reaches end of non-void function
+Finished building: ../Dio.c
+ 
+Building file: ../Dio_ModuleTest.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Dio_ModuleTest.d" -MT"Dio_ModuleTest.o" -c -o "Dio_ModuleTest.o" "../Dio_ModuleTest.c"
+Finished building: ../Dio_ModuleTest.c
+ 
+Building file: ../Dio_PBcfg.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"Dio_PBcfg.d" -MT"Dio_PBcfg.o" -c -o "Dio_PBcfg.o" "../Dio_PBcfg.c"
+../Dio_PBcfg.c:45: warning: missing braces around initializer
+../Dio_PBcfg.c:45: warning: (near initialization for 'Dio_Configuration.Channels')
+Finished building: ../Dio_PBcfg.c
+ 
+Building target: Dio_ModuleTest.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Dio_ModuleTest.map -mmcu=atmega16 -o "Dio_ModuleTest.elf"  ./Det.o ./Dio.o ./Dio_ModuleTest.o ./Dio_PBcfg.o   
+Finished building target: Dio_ModuleTest.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Dio_ModuleTest.elf  >"Dio_ModuleTest.lss"
+Finished building: Dio_ModuleTest.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Dio_ModuleTest.elf  "Dio_ModuleTest.hex"
+Finished building: Dio_ModuleTest.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Dio_ModuleTest.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    1748 bytes (10.7% Full)
+(.text + .data + .bootloader)
+
+Data:         11 bytes (1.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+12:48:23 Build Finished (took 17s.196ms)
+
